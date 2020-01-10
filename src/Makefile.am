@@ -1,6 +1,6 @@
-DISTCHECK_CONFIGURE_FLAGS = --disable-dogtail
+ACLOCAL_AMFLAGS = -I m4 -I libgd
 
-SUBDIRS = po data src tests
+SUBDIRS = po data libgd src
 
 MAINTAINERCLEANFILES = \
 	$(srcdir)/INSTALL \
@@ -17,14 +17,6 @@ MAINTAINERCLEANFILES = \
 	$(srcdir)/missing \
 	$(srcdir)/mkinstalldirs
 
-GITIGNOREFILES = \
-	m4/intltool.m4 \
-	m4/libtool.m4 \
-	m4/lt* \
-	.build \
-	.flatpak-builder \
-	.buildconfig
-
-distdir = $(PACKAGE_TARNAME)-$(VERSION)
+GITIGNOREFILES = m4/
 
 -include $(top_srcdir)/git.mk

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+_Name=Weather
+_Comment=Show weather conditions and forecast
+Icon=weather-clear
+Exec=gnome-weather
