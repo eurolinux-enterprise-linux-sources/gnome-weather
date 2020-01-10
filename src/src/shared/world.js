@@ -24,7 +24,7 @@ const Lang = imports.lang;
 const Params = imports.misc.params;
 const Util = imports.misc.util;
 
-const WorldModel = new Lang.Class({
+var WorldModel = new Lang.Class({
     Name: 'WorldModel',
     Extends: GObject.Object,
     Signals: {
@@ -125,12 +125,12 @@ const WorldModel = new Lang.Class({
         if (info._loadingId)
             return;
 
-        info._loadingId = info.connect('updated', Lang.bind(this, function(info) {
+        info._loadingId = info.connect('updated', (info) => {
             info.disconnect(info._loadingId);
             info._loadingId = 0;
 
             this._updateLoadingCount(-1);
-        }));
+        });
 
         info.update();
         this._updateLoadingCount(+1);
@@ -163,12 +163,11 @@ const WorldModel = new Lang.Class({
         if (this._queueSaveSettingsId)
             return;
 
-        let id = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 10,
-                                          Lang.bind(this, function() {
-                                              this._queueSaveSettingsId = 0;
-                                              this._saveSettingsInternal();
-                                              return false;
-                                          }));
+        let id = GLib.timeout_add_seconds(GLib.PRIORITY_DEFAULT, 10, () => {
+            this._queueSaveSettingsId = 0;
+            this._saveSettingsInternal();
+            return false;
+        });
         this._queueSaveSettingsId = id;
     },
 

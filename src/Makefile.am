@@ -18,39 +18,13 @@ MAINTAINERCLEANFILES = \
 	$(srcdir)/mkinstalldirs
 
 GITIGNOREFILES = \
-	.anjuta \
-	.anjuta_sym_db.db \
 	m4/intltool.m4 \
 	m4/libtool.m4 \
 	m4/lt* \
-	rpms/ \
-	xdg-app/ \
-	.xdg-app-builder/ \
-	xdg-app-build.sh \
 	.build \
+	.flatpak-builder \
 	.buildconfig
 
 distdir = $(PACKAGE_TARNAME)-$(VERSION)
-
-rpmdefines = \
-	--define "_name $(PACKAGE_NAME)" \
-	--define "_version $(PACKAGE_VERSION)" \
-	--define "_distdir $(PACKAGE_TARNAME)" \
-	--define "_sourcedir $(abs_builddir)" \
-	--define "_specdir $(abs_srcdir)" \
-	--define "_builddir $(abs_builddir)/rpms" \
-	--define "_srcrpmdir $(abs_builddir)/rpms" \
-	--define "_rpmdir $(abs_builddir)/rpms"
-
-rpm: dist
-	@rm -fR $(builddir)/rpms
-	@mkdir $(builddir)/rpms
-	env -i PATH=/usr/bin/:/bin SHELL=$(SHELL) HOSTNAME=$${HOSTNAME} HOME=$${HOME} \
-	rpmbuild $(rpmdefines) -ba $(srcdir)/$(PACKAGE_NAME).spec
-
-clean-local:
-	rm -fR $(builddir)/rpms
-
-EXTRA_DIST = $(PACKAGE_NAME).spec
 
 -include $(top_srcdir)/git.mk

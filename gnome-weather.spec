@@ -1,16 +1,16 @@
-%global gjs_version 1.39.91
+%global gjs_version 1.49.4
 %global gobject_introspection_version 1.35.9
 %global gtk3_version 3.11.4
-%global libgweather_version 3.17.2
+%global libgweather_version 3.25.91
 
 Name:		gnome-weather
-Version:	3.20.2
+Version:	3.26.0
 Release:	1%{?dist}
 Summary:	A weather application for GNOME
 
 License:	GPLv2+ and LGPLv2+ and MIT and CC-BY and CC-BY-SA
-URL:		https://live.gnome.org/Design/Apps/Weather
-Source0:	http://download.gnome.org/sources/%{name}/3.20/%{name}-%{version}.tar.xz
+URL:		https://wiki.gnome.org/Apps/Weather
+Source0:	https://download.gnome.org/sources/%{name}/3.26/%{name}-%{version}.tar.xz
 
 BuildArch:	noarch
 
@@ -18,7 +18,6 @@ BuildRequires:	intltool
 BuildRequires:	desktop-file-utils
 BuildRequires:	gjs-devel >= %{gjs_version}
 BuildRequires:	glib2-devel
-BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection >= %{gobject_introspection_version}
 BuildRequires:	gtk3-devel >= %{gtk3_version}
 BuildRequires:	libgweather-devel >= %{libgweather_version}
@@ -36,29 +35,31 @@ gnome-weather is a weather application for GNOME
 
 %package tests
 Summary: Tests for the gnome-weather package
-Group: Development/Libraries
 Requires: %{name} = %{version}-%{release}
 
 %description tests
 The gnome-weather-tests package contains tests that can be used to verify
 the functionality of the installed gnome-weather package.
 
-
 %prep
-%setup -q
+%autosetup
 
 %build
 %configure --disable-static --enable-installed-tests
-make %{?_smp_mflags}
+%make_build
 
 %install
 %make_install
-find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
+find %{buildroot} -name '*.la' -print -delete
+
+# Fix appdata file name
+mv %{buildroot}%{_datadir}/appdata/org.gnome.Weather.appdata.xml \
+   %{buildroot}%{_datadir}/appdata/org.gnome.Weather.Application.appdata.xml
 
 %find_lang org.gnome.Weather
 
 %check
-desktop-file-validate $RPM_BUILD_ROOT/%{_datadir}/applications/org.gnome.Weather.Application.desktop
+desktop-file-validate %{buildroot}%{_datadir}/applications/org.gnome.Weather.Application.desktop
 
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
@@ -95,6 +96,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/installed-tests
 
 %changelog
+* Mon Sep 11 2017 Kalev Lember <klember@redhat.com> - 3.26.0-1
+- Update to 3.26.0
+- Resolves: #1511093
+
 * Thu Feb 23 2017 Matthias Clasen <mclasen@redhat.com> - 3.20.2-1
 - Rebase to 3.20.2
   Resolves: rhbz#1386969

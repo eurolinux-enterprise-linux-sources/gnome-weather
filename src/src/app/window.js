@@ -32,13 +32,11 @@ const Page = {
     CITY: 1
 };
 
-const MainWindow = new Lang.Class({
+var MainWindow = new Lang.Class({
     Name: 'MainWindow',
     Extends: Gtk.ApplicationWindow,
 
     _init: function(params) {
-        params = Params.fill(params, { width_request: 700,
-                                       height_request: 520 });
         this.parent(params);
 
         this._world = this.application.world;
@@ -72,7 +70,7 @@ const MainWindow = new Lang.Class({
         this._searchView = builder.get_object('initial-grid');
 
         this._searchEntry = builder.get_object('initial-grid-location-entry');
-        this._searchEntry.connect('notify::location', Lang.bind(this, this._searchLocationChanged));
+        this._searchEntry.connect('notify::location', this._searchLocationChanged.bind(this));
 
         let placesButton = builder.get_object('places-button');
         this._pageWidgets[Page.CITY].push(placesButton);
@@ -218,7 +216,7 @@ const MainWindow = new Lang.Class({
 
         let copyright = 'Copyright 2013-2015 The Weather Developers';
         let attribution = this._cityView.info ? this._cityView.info.get_attribution() : '';
-        let copyright = copyright + (attribution ? '\n' + attribution : '');
+        copyright += attribution ? '\n' + attribution : '';
         let aboutDialog = new Gtk.AboutDialog(
             { artists: artists,
               authors: [ 'Giovanni Campagna <gcampagna@src.gnome.org>' ],

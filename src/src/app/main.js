@@ -48,7 +48,8 @@ const Application = new Lang.Class({
     Extends: Gtk.Application,
 
     _init: function() {
-        this.parent({ application_id: pkg.name });
+        this.parent({ application_id: pkg.name,
+                      flags: (Gio.ApplicationFlags.CAN_OVERRIDE_APP_ID |  Gio.ApplicationFlags.FLAGS_NONE) });
         GLib.set_application_name(_("Weather"));
         Gtk.Window.set_default_icon_name("org.gnome.Weather");
     },
@@ -97,12 +98,12 @@ const Application = new Lang.Class({
         this.model.load();
         this.currentLocationController = new CurrentLocationController.CurrentLocationController(this.model);
 
-        this.model.connect('notify::loading', Lang.bind(this, function() {
+        this.model.connect('notify::loading', () => {
             if (this.model.loading)
                 this.mark_busy();
             else
                 this.unmark_busy();
-        }));
+        });
         if (this.model.loading)
             this.mark_busy();
 

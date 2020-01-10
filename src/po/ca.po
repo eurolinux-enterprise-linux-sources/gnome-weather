@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the gnome-weather package.
 # Josep Sanchez <papapep@gmx.com>, 2013.
 # Gil Forcada <gilforcada@guifi.net>, 2014.
+# Jordi Serratosa <jordis@softcatala.cat>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-weather master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-10 16:32-0400\n"
+"Report-Msgid-Bugs-To: https://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2017-08-20 15:17+0000\n"
 "PO-Revision-Date: 2014-09-20 22:20+0200\n"
 "Last-Translator: Gil Forcada <gilforcada@guifi.net>\n"
 "Language-Team: Catalan <tradgnome@softcatala.org>\n"
@@ -19,26 +21,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: ../data/app-menu.ui.h:1
-msgid "_New"
-msgstr "_Nova"
-
-#: ../data/app-menu.ui.h:2
 msgid "Temperature unit"
 msgstr "Unitat de temperatura"
 
-#: ../data/app-menu.ui.h:3
+#: ../data/app-menu.ui.h:2
 msgid "Celsius"
 msgstr "Celsius"
 
-#: ../data/app-menu.ui.h:4
+#: ../data/app-menu.ui.h:3
 msgid "Fahrenheit"
 msgstr "Fahrenheit"
 
-#: ../data/app-menu.ui.h:5
+#: ../data/app-menu.ui.h:4
 msgid "About"
 msgstr "Quant a"
 
-#: ../data/app-menu.ui.h:6
+#: ../data/app-menu.ui.h:5
 msgid "Quit"
 msgstr "Surt"
 
@@ -50,18 +48,18 @@ msgstr "Visualització de ciutat"
 msgid "Loading…"
 msgstr "S'està carregant…"
 
-#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
-#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
-#: ../src/app/window.js:213 ../src/service/main.js:49
+#: ../data/org.gnome.Weather.appdata.xml.in.h:1
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:53
+#: ../src/app/window.js:226 ../src/service/main.js:49
 msgid "Weather"
 msgstr "Meteorologia"
 
-#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+#: ../data/org.gnome.Weather.appdata.xml.in.h:2
 #: ../data/org.gnome.Weather.Application.desktop.in.h:2
 msgid "Show weather conditions and forecast"
 msgstr "Mostra les condicions actuals i la predicció meteorològica"
 
-#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+#: ../data/org.gnome.Weather.appdata.xml.in.h:3
 msgid ""
 "A small application that allows you to monitor the current weather "
 "conditions for your city, or anywhere in the world."
@@ -69,7 +67,7 @@ msgstr ""
 "Un programa petit que us permet fer un seguiment de les condicions "
 "meteorològiques actuals a la vostra ciutat o a qualsevol lloc del món."
 
-#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:4
+#: ../data/org.gnome.Weather.appdata.xml.in.h:4
 msgid ""
 "It provides access to detailed forecasts, up to 7 days, with hourly details "
 "for the current and next day, using various internet services."
@@ -78,19 +76,24 @@ msgstr ""
 "hores pel dia actual i l'endemà. Proporcionades per diversos serveis "
 "d'Internet."
 
-#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:5
+#: ../data/org.gnome.Weather.appdata.xml.in.h:5
 msgid ""
 "It also optionally integrates with the GNOME Shell, allowing you see the "
 "current conditions of the most recently searched cities by just typing its "
 "name in the Activities Overview."
 msgstr ""
 "Opcionalment també es pot integrar amb el GNOME Shell de manera que vegeu "
-"les condicions actuals de les últimes ciutats que hagueu cercat teclejant el "
+"les condicions actuals de les últimes ciutats que hàgiu cercat teclejant el "
 "seu nom al resum d'activitats."
 
 #: ../data/org.gnome.Weather.Application.desktop.in.h:3
 msgid "Weather;Forecast;"
 msgstr "Meteorologia;Predicció;"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:4
+msgid "Allows weather information to be displayed for your location."
+msgstr ""
+"Permet que la informació meteorològica es mostri per la vostra ubicació."
 
 #: ../data/org.gnome.Weather.Application.gschema.xml.h:1
 msgid "Configured cities to show weather for"
@@ -160,25 +163,21 @@ msgstr "Cerqueu una ubicació"
 msgid "To see weather information, enter the name of a city."
 msgstr "Per veure la informació meteorològica, introduïu el nom d'una ciutat."
 
-#: ../src/app/city.js:289
-msgid "%H:%M"
-msgstr "%H:%M"
-
 #: ../src/app/forecast.js:37
 msgid "Forecast"
 msgstr "Predicció"
 
-#: ../src/app/forecast.js:110
+#: ../src/app/forecast.js:111
 msgid "Forecast not available"
 msgstr "La predicció està disponible"
 
 #. Translators: this is a time format without date used for AM/PM
-#: ../src/app/forecast.js:126
+#: ../src/app/forecast.js:127
 msgid "%l∶%M %p"
 msgstr "%l∶%M %p"
 
 #. Translators: this is a time format without date used for 24h mode
-#: ../src/app/forecast.js:129
+#: ../src/app/forecast.js:130
 msgid "%R"
 msgstr "%R"
 
@@ -187,23 +186,23 @@ msgid "Weekly Forecast"
 msgstr "Predicció de la setmana"
 
 #. Translators: this is the time format for full weekday name according to the current locale
-#: ../src/app/weeklyForecast.js:107
+#: ../src/app/weeklyForecast.js:121
 msgid "%A"
 msgstr "%A"
 
-#: ../src/app/window.js:112
+#: ../src/app/window.js:115
 msgid "Select Location"
 msgstr "Seleccioneu una ubicació"
 
-#: ../src/app/window.js:212
+#: ../src/app/window.js:225
 msgid "translator-credits"
 msgstr "Josep Sanchez Mesegue <papapep@gmx.com>"
 
-#: ../src/app/window.js:214
+#: ../src/app/window.js:227
 msgid "A weather application"
 msgstr "Un programa sobre meteorologia"
 
-#: ../src/app/world.js:38
+#: ../src/app/world.js:39
 msgid "World view"
 msgstr "Visualització mundial"
 
@@ -218,7 +217,13 @@ msgstr "%s / %s"
 #. TRANSLATORS: this is the description shown in the overview search
 #. It's the current weather conditions followed by the temperature,
 #. like "Clear sky, 14 °C"
-#: ../src/service/searchProvider.js:184
+#: ../src/service/searchProvider.js:181
 #, javascript-format
 msgid "%s, %s"
 msgstr "%s, %s"
+
+#~ msgid "_New"
+#~ msgstr "_Nova"
+
+#~ msgid "%H:%M"
+#~ msgstr "%H:%M"
