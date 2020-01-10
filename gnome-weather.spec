@@ -1,6 +1,6 @@
 Name:		gnome-weather
 Version:	3.8.2
-Release:	1%{?dist}
+Release:	4%{?dist}
 Summary:	A weather application for GNOME
 
 License:	GPLv2+ and LGPLv2+ and MIT and CC-BY and CC-BY-SA
@@ -25,11 +25,16 @@ Provides:	bundled(libgd)
 %filter_provides_in %{_libdir}/%{name}/.*\.so$
 %filter_setup
 
+# https://bugzilla.redhat.com/show_bug.cgi?id=1037834
+# Add a category to the desktop file
+Patch0:		add-categories-to-desktop-file.patch
+
 %description
 gnome-weather is a weather application for GNOME
 
 %prep
 %setup -q
+%patch0 -p1 -b .add-categories-to-desktop-file
 
 %build
 %configure --disable-static
@@ -58,6 +63,15 @@ fi
 %{_libdir}/gnome-weather/
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.8.2-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.8.2-3
+- Mass rebuild 2013-12-27
+
+* Thu Dec 5 2013 Zeeshan Ali <zeenix@redhat.com> - 3.8.2-2
+- Add categories to desktop file (#1037834).
+
 * Tue May 14 2013 Matthias Clasen <mclasen@redhat.com> - 3.8.2-1
 - Update to 3.8.2
 

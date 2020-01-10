@@ -1,0 +1,7 @@
+--- gnome-weather-3.8.2-orig/data/gnome-weather.desktop.in	2013-12-05 17:22:27.311993986 +0000
++++ gnome-weather-3.8.2/data/gnome-weather.desktop.in	2013-12-05 17:23:05.872433563 +0000
+@@ -4,3 +4,4 @@
+ _Comment=Show weather conditions and forecast
+ Icon=weather-clear
+ Exec=gnome-weather
++Categories=GNOME;GTK;Utility;Core;
