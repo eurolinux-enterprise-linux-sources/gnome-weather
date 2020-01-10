@@ -1,0 +1,446 @@
+# Hungarian translation for gnome-weather.
+# Copyright (C) 2013 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+#
+# Balázs Úr <urbalazs at gmail dot com>, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-16 20:21+0000\n"
+"PO-Revision-Date: 2014-09-16 23:23+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "Ú_j"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Hőmérséklet mértékegysége"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "Névjegy"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Jelenlegi időjárás"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Ma"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Holnap"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Időjárás"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Időjárási viszonyok és előrejelzés megjelenítése"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Egy kicsi alkalmazás, amely lehető teszi a jelenlegi időjárási körülmények "
+"figyelését a településén, vagy bárhol a világon."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Részletes előrejelzésekhez biztosít hozzáférést 7 napos időtávra, valamint "
+"különféle internetes szolgáltatásokat felhasználva óránkénti részleteket "
+"nyújt az aktuális és a következő napra."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Ezen felül opcionálisan beépül a GNOME parancsértelmezőbe, lehetővé téve a "
+"leggyakrabban keresett városok aktuális időjárásának megtekintését azok "
+"neveinek begépelésével a tevékenységek áttekintőjébe."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Beállított városok az időjárás megtekintéséhez"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"A gnome-weather világnézetében megjelenő helyek. Minden érték a "
+"gweather_location_serialize() által visszaadott GVariant."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+msgid "Automatic location"
+msgstr "Automatikus hely"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Az automatikus hely az automatikus hely átváltásának értéke, amely eldönti, "
+"hogy letöltse-e az aktuális helyet vagy sem."
+
+#: ../data/places-popover.ui.h:1
+msgid "Automatic Location"
+msgstr "Automatikus hely"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Helymeghatározás…"
+
+#: ../data/places-popover.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a city"
+msgstr "Város keresése"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Legutóbb megtekintett"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Helyek"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Frissítés"
+
+#: ../data/window.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a location"
+msgstr "Hely keresése"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr "Az időjárási információk megtekintéséhez adja meg egy város nevét."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Város nézet"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Betöltés…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H.%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Előrejelzés"
+
+#: ../src/app/forecast.js:110
+msgid "Forecast not available"
+msgstr "Nem érhető el előrejelzés"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%p %l.%M"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+msgid "Weekly Forecast"
+msgstr "Heti előrejelzés"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+msgid "Select Location"
+msgstr "Hely kiválasztása"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr "Úr Balázs <urbalazs@gmail.com>"
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Egy időjárás alkalmazás"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Világ nézet"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#~ msgid "Detailed forecast"
+#~ msgstr "Részletes előrejelzés"
+
+#~ msgid "Select All"
+#~ msgstr "Összes kijelölése"
+
+#~ msgid "Select None"
+#~ msgstr "Kijelölés megszüntetése"
+
+#~ msgid "Click on locations to select them"
+#~ msgstr "Kattintson a helyekre a kiválasztásukhoz"
+
+#~ msgid "New"
+#~ msgstr "Új"
+
+#~ msgid "Back"
+#~ msgstr "Vissza"
+
+#~| msgid "Select All"
+#~ msgid "Select"
+#~ msgstr "Kijelölés"
+
+#~ msgid "Cancel"
+#~ msgstr "Mégse"
+
+#~ msgid "Delete"
+#~ msgstr "Törlés"
+
+#~ msgid "More…"
+#~ msgstr "Több…"
+
+#~ msgid "Forecast for Tomorrow"
+#~ msgstr "Holnapi előrejelzés"
+
+#~ msgid "%B %d"
+#~ msgstr "%B %d."
+
+#~ msgid "Monday night"
+#~ msgstr "Hétfő éjjel"
+
+#~ msgid "Monday morning"
+#~ msgstr "Hétfő reggel"
+
+#~ msgid "Monday afternoon"
+#~ msgstr "Hétfő délután"
+
+#~ msgid "Monday evening"
+#~ msgstr "Hétfő este"
+
+#~ msgid "Tuesday night"
+#~ msgstr "Kedd éjjel"
+
+#~ msgid "Tuesday morning"
+#~ msgstr "Kedd reggel"
+
+#~ msgid "Tuesday afternoon"
+#~ msgstr "Kedd délután"
+
+#~ msgid "Tuesday evening"
+#~ msgstr "Kedd este"
+
+#~ msgid "Wednesday night"
+#~ msgstr "Szerda éjjel"
+
+#~ msgid "Wednesday morning"
+#~ msgstr "Szerda reggel"
+
+#~ msgid "Wednesday afternoon"
+#~ msgstr "Szerda délután"
+
+#~ msgid "Wednesday evening"
+#~ msgstr "Szerda este"
+
+#~ msgid "Thursday night"
+#~ msgstr "Csütörtök éjjel"
+
+#~ msgid "Thursday morning"
+#~ msgstr "Csütörtök reggel"
+
+#~ msgid "Thursday afternoon"
+#~ msgstr "Csütörtök délután"
+
+#~ msgid "Thursday evening"
+#~ msgstr "Csütörtök este"
+
+#~ msgid "Friday night"
+#~ msgstr "Péntek éjjel"
+
+#~ msgid "Friday morning"
+#~ msgstr "Péntek reggel"
+
+#~ msgid "Friday afternoon"
+#~ msgstr "Péntek délután"
+
+#~ msgid "Friday evening"
+#~ msgstr "Péntek este"
+
+#~ msgid "Saturday night"
+#~ msgstr "Szombat éjjel"
+
+#~ msgid "Saturday morning"
+#~ msgstr "Szombat reggel"
+
+#~ msgid "Saturday afternoon"
+#~ msgstr "Szombat délután"
+
+#~ msgid "Saturday evening"
+#~ msgstr "Szombat este"
+
+#~ msgid "Sunday night"
+#~ msgstr "Vasárnap éjjel"
+
+#~ msgid "Sunday morning"
+#~ msgstr "Vasárnap reggel"
+
+#~ msgid "Sunday afternoon"
+#~ msgstr "Vasárnap délután"
+
+#~ msgid "Sunday evening"
+#~ msgstr "Vasárnap este"
+
+#~ msgid "Tonight"
+#~ msgstr "Ma éjjel"
+
+#~ msgid "This morning"
+#~ msgstr "Ma reggel"
+
+#~ msgid "This afternoon"
+#~ msgstr "Ma délután"
+
+#~ msgid "This evening"
+#~ msgstr "Ma este"
+
+#~ msgid "Tomorrow night"
+#~ msgstr "Holnap éjjel"
+
+#~ msgid "Tomorrow morning"
+#~ msgstr "Holnap reggel"
+
+#~ msgid "Tomorrow afternoon"
+#~ msgstr "Holnap délután"
+
+#~ msgid "Tomorrow evening"
+#~ msgstr "Holnap este"
+
+#~ msgid "%d selected"
+#~ msgid_plural "%d selected"
+#~ msgstr[0] "%d kiválasztva"
+#~ msgstr[1] "%d kiválasztva"
+
+#~ msgid "World Weather"
+#~ msgstr "Világ időjárás"
+
+#~ msgid "Cities"
+#~ msgstr "Városok"
+
+#~ msgid "Use the <b>New</b> button on the toolbar to add more world locations"
+#~ msgstr ""
+#~ "Használja az <b>Új</b> gombot az eszköztáron további világhelyek "
+#~ "hozzáadásához"
+
+#~ msgid "About Weather"
+#~ msgstr "Az Időjárás névjegye"
+
+#~ msgid "_Preferences"
+#~ msgstr "_Beállítások"
+
+#~ msgid "Meters (m)"
+#~ msgstr "Méter (m)"
+
+#~ msgid "Kilometers (km)"
+#~ msgstr "Kilométer (km)"
+
+#~ msgid "Miles (mi)"
+#~ msgstr "Mérföld (mi)"
+
+#~ msgid "Preferences"
+#~ msgstr "Beállítások"
+
+#~ msgid "Speed unit:"
+#~ msgstr "Sebesség mértékegysége:"
+
+#~ msgid "Distance unit:"
+#~ msgstr "Távolság mértékegysége:"
+
+#~ msgid "Pressure unit:"
+#~ msgstr "Nyomás mértékegysége:"
+
+#~ msgid "Kilopascal (kPa)"
+#~ msgstr "Kilopascal (kPa)"
+
+#~ msgid "Hectopascal (hPa)"
+#~ msgstr "Hectopascal (hPa)"
+
+#~ msgid "Millibar (mbar)"
+#~ msgstr "Millibar (mbar)"
+
+#~ msgid "Millimeters of mercury (mmHg)"
+#~ msgstr "Higanymilliméter (mmHg)"
+
+#~ msgid "Inches of mercury (inchHg)"
+#~ msgstr "Higanyhüvelyk (inchHg)"
+
+#~ msgid "Atmosphere (atm)"
+#~ msgstr "Atmoszféra (atm)"
+
+#~ msgid "Meters per second (m/s)"
+#~ msgstr "Méter per másodperc (m/s)"
+
+#~ msgid "Kilometers per hour (km/h)"
+#~ msgstr "Kilométer per óra (km/h)"
+
+#~ msgid "Miles per hour (mph)"
+#~ msgstr "Mérföld per óra (mph)"
+
+#~ msgid "Knots"
+#~ msgstr "Csomó"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "Beaufort skála"
+
+#~ msgid "Kelvin (K)"
+#~ msgstr "Kelvin (K)"
+
+#~ msgid "Centigrade (°C)"
+#~ msgstr "Celsius-fok (°C)"
+
+#~ msgid "Done"
+#~ msgstr "Kész"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Kattintson az elemekre a kiválasztásukhoz"

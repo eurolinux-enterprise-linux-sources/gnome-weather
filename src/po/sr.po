@@ -1,0 +1,390 @@
+# Serbian translation for gnome-weather.
+# Copyright (C) 2013 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2013—2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-23 08:23+0000\n"
+"PO-Revision-Date: 2014-09-23 11:11+0200\n"
+"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
+"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Ново"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Јединица температуре"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Целзијуси"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Фаренхајти"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "О програму"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Изађи"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Текуће прилике"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Данас"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Сутра"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Време"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Прикажите временске прилике и прогнозу"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+#| msgid ""
+#| "A small application that allows you to monitor the current weather "
+#| "conditions for your city, or anywhere in the world and to access updated "
+#| "forecasts, up to 7 days, provided by various internet services."
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Програмче које вам омогућава да надгледате тренутне временске прилике за ваш "
+"град, или било где у свету."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Обезбеђује приступ опширним временским прогнозама, до 7 дана, са "
+"једночасовним појединостима за текући и наредни дан, користећи разне "
+"интернет услуге."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Такође се може објединити са Гномовом шкољком, омогућавајући вам да видите "
+"тренутне услове последњих тражених градова једноставним куцањем њихових "
+"имена у прегледу активности."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Подешени градови за које приказивати време"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"Места приказана у прегледу света гномовог времена. Свака вредност је "
+"Гваријанта коју даје функција „gweather_location_serialize()“."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+#| msgid "Add locations"
+msgid "Automatic location"
+msgstr "Самостално место"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Самостално место је вредност пребацивача самосталног места који одлучује да "
+"ли да добави текуће место или не."
+
+#: ../data/places-popover.ui.h:1
+#| msgid "New Location"
+msgid "Automatic Location"
+msgstr "Самостално место"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Проналазим…"
+
+#: ../data/places-popover.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a city"
+msgstr "Потражите град"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Недавно виђени"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Места"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Освежи"
+
+#: ../data/window.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a location"
+msgstr "Потражите место"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr "Да видите временске податке, унесите име града."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Преглед града"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Учитавам…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Прогноза"
+
+#: ../src/app/forecast.js:110
+#| msgid "Forecast for Today"
+msgid "Forecast not available"
+msgstr "Временска прогноза није доступна"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+#| msgid "Forecast"
+msgid "Weekly Forecast"
+msgstr "Седмична прогноза времена"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+#| msgid "New Location"
+msgid "Select Location"
+msgstr "Изаберите место"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr ""
+"  Мирослав Николић\n"
+"\n"
+"  http://prevod.org — превод на српски језик"
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Програм за временске прилике"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Преглед света"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#~ msgid "Detailed forecast"
+#~ msgstr "Опширна прогноза"
+
+#~ msgid "Select All"
+#~ msgstr "Изабери све"
+
+#~ msgid "Select None"
+#~ msgstr "Поништи избор"
+
+#~ msgid "Click on locations to select them"
+#~ msgstr "Кликните на места да их изаберете"
+
+#~ msgid "New"
+#~ msgstr "Ново"
+
+#~ msgid "Back"
+#~ msgstr "Назад"
+
+#~| msgid "Select All"
+#~ msgid "Select"
+#~ msgstr "Изабери"
+
+#~ msgid "Cancel"
+#~ msgstr "Откажи"
+
+#~ msgid "Delete"
+#~ msgstr "Обриши"
+
+#~ msgid "More…"
+#~ msgstr "Још…"
+
+#~ msgid "Forecast for Tomorrow"
+#~ msgstr "Прогноза за сутра"
+
+#~ msgid "%B %d"
+#~ msgstr "%B %d"
+
+#~ msgid "Monday night"
+#~ msgstr "У понедељак ноћу"
+
+#~ msgid "Monday morning"
+#~ msgstr "У понедељак ујутру"
+
+#~ msgid "Monday afternoon"
+#~ msgstr "У понедељак поподне"
+
+#~ msgid "Monday evening"
+#~ msgstr "У понедељак увече"
+
+#~ msgid "Tuesday night"
+#~ msgstr "У уторак ноћу"
+
+#~ msgid "Tuesday morning"
+#~ msgstr "У уторак ујутру"
+
+#~ msgid "Tuesday afternoon"
+#~ msgstr "У уторак поподне"
+
+#~ msgid "Tuesday evening"
+#~ msgstr "У уторак увече"
+
+#~ msgid "Wednesday night"
+#~ msgstr "У среду ноћу"
+
+#~ msgid "Wednesday morning"
+#~ msgstr "У среду ујутру"
+
+#~ msgid "Wednesday afternoon"
+#~ msgstr "У среду поподне"
+
+#~ msgid "Wednesday evening"
+#~ msgstr "У среду увече"
+
+#~ msgid "Thursday night"
+#~ msgstr "У четвртак ноћу"
+
+#~ msgid "Thursday morning"
+#~ msgstr "У четвртак ујутру"
+
+#~ msgid "Thursday afternoon"
+#~ msgstr "У четвртак поподне"
+
+#~ msgid "Thursday evening"
+#~ msgstr "У четвртак увече"
+
+#~ msgid "Friday night"
+#~ msgstr "У петак ноћу"
+
+#~ msgid "Friday morning"
+#~ msgstr "У петак ујутру"
+
+#~ msgid "Friday afternoon"
+#~ msgstr "У петак поподне"
+
+#~ msgid "Friday evening"
+#~ msgstr "У петак увече"
+
+#~ msgid "Saturday night"
+#~ msgstr "У суботу ноћу"
+
+#~ msgid "Saturday morning"
+#~ msgstr "У суботу ујутру"
+
+#~ msgid "Saturday afternoon"
+#~ msgstr "У суботу поподне"
+
+#~ msgid "Saturday evening"
+#~ msgstr "У суботу увече"
+
+#~ msgid "Sunday night"
+#~ msgstr "У недељу ноћу"
+
+#~ msgid "Sunday morning"
+#~ msgstr "У недељу ујутру"
+
+#~ msgid "Sunday afternoon"
+#~ msgstr "У недељу поподне"
+
+#~ msgid "Sunday evening"
+#~ msgstr "У недељу увече"
+
+#~ msgid "Tonight"
+#~ msgstr "Ноћас"
+
+#~ msgid "This morning"
+#~ msgstr "Овог јутра"
+
+#~ msgid "This afternoon"
+#~ msgstr "Овог поподнева"
+
+#~ msgid "This evening"
+#~ msgstr "Ове вечери"
+
+#~ msgid "Tomorrow night"
+#~ msgstr "Сутра ноћу"
+
+#~ msgid "Tomorrow morning"
+#~ msgstr "Сутра ујутру"
+
+#~ msgid "Tomorrow afternoon"
+#~ msgstr "Сутра поподне"
+
+#~ msgid "Tomorrow evening"
+#~ msgstr "Сутра увече"
+
+#~ msgid "%d selected"
+#~ msgid_plural "%d selected"
+#~ msgstr[0] "%d изабран"
+#~ msgstr[1] "%d изабрана"
+#~ msgstr[2] "%d изабраних"
+#~ msgstr[3] "%d изабран"
+
+#~ msgid "World Weather"
+#~ msgstr "Светско време"
+
+#~ msgid "Cities"
+#~ msgstr "Градови"
+
+#~ msgid "Use the <b>New</b> button on the toolbar to add more world locations"
+#~ msgstr ""
+#~ "Користите дугме <b>Ново</b> на траци алата да додате још светских места"
+
+#~ msgid "About Weather"
+#~ msgstr "О Времену"

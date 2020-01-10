@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <!-- interface-requires gtk+ 3.10 -->
+  <object class="GtkHeaderBar" id="header-bar">
+    <property name="visible">True</property>
+    <property name="vexpand">False</property>
+    <property name="show-close-button">True</property>
+    <child>
+      <object class="GtkMenuButton" id="places-button">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="label" translatable="yes">Places</property>
+        <property name="use-popover">True</property>
+        <property name="valign">center</property>
+        <style>
+          <class name="text-button"/>
+        </style>
+      </object>
+      <packing>
+        <property name="pack_type">start</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkButton" id="refresh-button">
+        <property name="visible">True</property>
+        <property name="can_focus">True</property>
+        <property name="action-name">win.refresh</property>
+        <property name="valign">center</property>
+        <style>
+          <class name="image-button"/>
+        </style>
+        <child internal-child="accessible">
+          <object class="AtkObject" id="refresh-button-a11y">
+            <property name="accessible-name" translatable="yes">Refresh</property>
+          </object>
+        </child>
+        <child>
+          <object class="GtkImage" id="refresh-button-image">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="icon-name">view-refresh-symbolic</property>
+            <property name="icon-size">1</property>
+          </object>
+        </child>
+      </object>
+      <packing>
+        <property name="pack_type">end</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkGrid" id="main-panel">
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkStack" id="main-stack">
+        <property name="transition-type">crossfade</property>
+        <child>
+          <object class="GtkGrid" id="initial-grid">
+            <property name="visible">True</property>
+            <property name="name">initial-grid</property>
+            <property name="can_focus">False</property>
+            <property name="orientation">vertical</property>
+            <property name="margin_top">25</property>
+            <property name="margin_bottom">25</property>
+            <property name="halign">center</property>
+            <property name="valign">center</property>
+            <property name="row_homogeneous">True</property>
+            <property name="vexpand">False</property>
+            <child>
+              <object class="GtkImage" id="mark-location-image">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="icon_name">mark-location-symbolic</property>
+                <property name="icon_size">6</property>
+                <property name="use_fallback">True</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="vexpand">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">0</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="search-location-label">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">Search for a location</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="vexpand">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">1</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="search-nereby-location-label">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">To see weather information, enter the name of a city.</property>
+                <property name="halign">center</property>
+                <property name="valign">center</property>
+                <property name="vexpand">False</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">2</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GWeatherLocationEntry" id="initial-grid-location-entry">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+              <packing>
+                <property name="left_attach">0</property>
+                <property name="top_attach">3</property>
+                <property name="width">1</property>
+                <property name="height">1</property>
+              </packing>
+            </child>
+          </object>
+        </child>
+        <child>
+          <placeholder/> <!-- city view -->
+        </child>
+      </object>
+      <packing>
+        <property name="left-attach">0</property>
+        <property name="top-attach">0</property>
+        <property name="width">1</property>
+        <property name="height">1</property>
+      </packing>
+    </child>
+  </object>
+</interface>

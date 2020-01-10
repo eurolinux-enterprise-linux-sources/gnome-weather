@@ -1,0 +1,381 @@
+# Finnish translation for gnome-weather.
+# Copyright (C) 2013 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2013, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-15 20:14+0000\n"
+"PO-Revision-Date: 2014-09-16 09:37+0300\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Uusi"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Lämpötilayksikkö"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "Tietoja"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Lopeta"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Nykyinen tila"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Tänään"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Huomenna"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Sää"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Näytä säätiedot ja -ennuste"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Pieni sovellus, joka mahdollistaa kotikaupunkisi tai minkä tahansa muun "
+"sijainnin säätietojen hakemisen."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Se tarjoaa eri verkkopalveluita käyttäen yksityiskohtaisen ennusteen "
+"seuraavan viikon ajalle sekä tuntikohtaiset tiedot kuluvalle ja seuraavalle "
+"päivälle."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Se myös mukautuu Gnome Shelliin, jolloin viimeksi tarkasteltujen sijaintien "
+"säätiedot ovat nähtävissä Shellin yleisnäkymässä kirjoittamalla paikkakunnan "
+"nimen."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Kaupungit, joiden sää on määritetty näytettäväksi"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"Gnomen sääsovelluksen maailmanäkymässä näytettävät sijainnit. Jokainen arvo "
+"on gweather_location_serialize() -toiminnon palauttama GVariant-muuttuja."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+msgid "Automatic location"
+msgstr "Automaattinen sijainti"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Automaattinen sijainti on automatic-location-kytkimen arvo, joka päättää "
+"haetaanko nykyinen sijainti vai ei."
+
+#: ../data/places-popover.ui.h:1
+msgid "Automatic Location"
+msgstr "Automaattinen sijainti"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Paikannetaan…"
+
+#: ../data/places-popover.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a city"
+msgstr "Etsi kaupunkia"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Viimeksi katsottu"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Sijainnit"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Päivitä"
+
+#: ../data/window.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a location"
+msgstr "Etsi sijaintia"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr "Kirjoita paikkakunnan nimi nähdäksesi säätiedot."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Kaupunkinäkymä"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Ladataan…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Ennuste"
+
+#: ../src/app/forecast.js:110
+msgid "Forecast not available"
+msgstr "Ennustetta ei ole saatavilla"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+msgid "Weekly Forecast"
+msgstr "Viikon ennuste"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+msgid "Select Location"
+msgstr "Valitse sijainti"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr "Jiri Grönroos"
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Sääsovellus"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Maailman näkymä"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#~ msgid "Detailed forecast"
+#~ msgstr "Yksityiskohtainen ennuste"
+
+#~ msgid "Select All"
+#~ msgstr "Valitse kaikki"
+
+#~ msgid "Select None"
+#~ msgstr "Älä valitse mitään"
+
+#~ msgid "Click on locations to select them"
+#~ msgstr "Napsauta sijainteja valitaksesi ne"
+
+#~ msgid "New"
+#~ msgstr "Uusi"
+
+#~ msgid "Back"
+#~ msgstr "Takaisin"
+
+#~| msgid "Select All"
+#~ msgid "Select"
+#~ msgstr "Valitse"
+
+#~ msgid "Cancel"
+#~ msgstr "Peru"
+
+#~ msgid "Delete"
+#~ msgstr "Poista"
+
+#~ msgid "More…"
+#~ msgstr "Lisää…"
+
+#~ msgid "Forecast for Tomorrow"
+#~ msgstr "Huomisen ennuste"
+
+#~ msgid "%B %d"
+#~ msgstr "%e. %Bta"
+
+#~ msgid "Monday night"
+#~ msgstr "Maanantai - yö"
+
+#~ msgid "Monday morning"
+#~ msgstr "Maanantai - aamu"
+
+#~ msgid "Monday afternoon"
+#~ msgstr "Maanantai - iltapäivä"
+
+#~ msgid "Monday evening"
+#~ msgstr "Maanantai - ilta"
+
+#~ msgid "Tuesday night"
+#~ msgstr "Tiistai - yö"
+
+#~ msgid "Tuesday morning"
+#~ msgstr "Tiistai - aamu"
+
+#~ msgid "Tuesday afternoon"
+#~ msgstr "Tiistai - iltapäivä"
+
+#~ msgid "Tuesday evening"
+#~ msgstr "Tiistai - ilta"
+
+#~ msgid "Wednesday night"
+#~ msgstr "Keskiviikko - yö"
+
+#~ msgid "Wednesday morning"
+#~ msgstr "Keskiviikko - aamu"
+
+#~ msgid "Wednesday afternoon"
+#~ msgstr "Keskiviikko - iltapäivä"
+
+#~ msgid "Wednesday evening"
+#~ msgstr "Keskiviikko - ilta"
+
+#~ msgid "Thursday night"
+#~ msgstr "Torstai - yö"
+
+#~ msgid "Thursday morning"
+#~ msgstr "Torstai - aamu"
+
+#~ msgid "Thursday afternoon"
+#~ msgstr "Torstai - iltapäivä"
+
+#~ msgid "Thursday evening"
+#~ msgstr "Torstai - ilta"
+
+#~ msgid "Friday night"
+#~ msgstr "Perjantai - yö"
+
+#~ msgid "Friday morning"
+#~ msgstr "Perjantai - aamu"
+
+#~ msgid "Friday afternoon"
+#~ msgstr "Perjantai - iltapäivä"
+
+#~ msgid "Friday evening"
+#~ msgstr "Perjantai - ilta"
+
+#~ msgid "Saturday night"
+#~ msgstr "Lauantai - yö"
+
+#~ msgid "Saturday morning"
+#~ msgstr "Lauantai - aamu"
+
+#~ msgid "Saturday afternoon"
+#~ msgstr "Lauantai - iltapäivä"
+
+#~ msgid "Saturday evening"
+#~ msgstr "Lauantai - ilta"
+
+#~ msgid "Sunday night"
+#~ msgstr "Sunnuntai - yö"
+
+#~ msgid "Sunday morning"
+#~ msgstr "Sunnuntai - aamu"
+
+#~ msgid "Sunday afternoon"
+#~ msgstr "Sunnuntai - iltapäivä"
+
+#~ msgid "Sunday evening"
+#~ msgstr "Sunnuntai - ilta"
+
+#~ msgid "Tonight"
+#~ msgstr "Tämä yö"
+
+#~ msgid "This morning"
+#~ msgstr "Tämä aamu"
+
+#~ msgid "This afternoon"
+#~ msgstr "Tämä iltapäivä"
+
+#~ msgid "This evening"
+#~ msgstr "Tämä ilta"
+
+#~ msgid "Tomorrow night"
+#~ msgstr "Huominen yö"
+
+#~ msgid "Tomorrow morning"
+#~ msgstr "Huominen aamu"
+
+#~ msgid "Tomorrow afternoon"
+#~ msgstr "Huominen iltapäivä"
+
+#~ msgid "Tomorrow evening"
+#~ msgstr "Huominen ilta"
+
+#~ msgid "%d selected"
+#~ msgid_plural "%d selected"
+#~ msgstr[0] "%d valittu"
+#~ msgstr[1] "%d valittu"
+
+#~ msgid "World Weather"
+#~ msgstr "Maailman sää"
+
+#~ msgid "Cities"
+#~ msgstr "Kaupungit"
+
+#~ msgid "Use the <b>New</b> button on the toolbar to add more world locations"
+#~ msgstr "Lisää uusia sijainteja napsauttamalla <b>Uusi</b> työkalupalkista"
+
+#~ msgid "About Weather"
+#~ msgstr "Tietoja sääsovelluksesta"
+
+#~ msgid "Done"
+#~ msgstr "Valmis"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "Napsauta kohteita valitaksesi ne"

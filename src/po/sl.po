@@ -1,0 +1,437 @@
+# Slovenian translation for gnome-weather.
+# Copyright (C) 2012 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+#
+# Matej Urbančič <mateju@svn.gnome.org>, 2012-2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-04-01 08:34+0000\n"
+"PO-Revision-Date: 2014-04-01 22:41+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
+"Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Novo"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Enota temperature"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Celzijus"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Fahrenheiti"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "O programu"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Končaj"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Trenutne razmere"
+
+#: ../data/city.ui.h:2
+msgid "Detailed forecast"
+msgstr "Podrobna napoved"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/main.js:56
+#: ../src/window.js:319
+msgid "Weather"
+msgstr "Vreme"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Spremljanje trenutnih vremenskih razmer in napovedi"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world and to access updated "
+"forecasts, up to 7 days, provided by various internet services."
+msgstr ""
+"Program, ki omogoča nadzor nad trenutnimi vremenskimi pogoji za izbrana "
+"mesta, kjerkoli na svetu in pregled napovedi za naslednjih 7 dni preko "
+"različnih spletnih storitev."
+
+#: ../data/new-location-dialog.ui.h:1
+msgid "New Location"
+msgstr "Novo mesto"
+
+#: ../data/new-location-dialog.ui.h:2
+msgid "Search for a city:"
+msgstr "Iskanje mesta:"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Nastavljena mesta za prikaz vremena"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr "Mesta, ki so prikazana v svetovnem pogledu programa gnome-weather."
+
+#: ../data/window.ui.h:1
+msgid "Select All"
+msgstr "Izberi vse"
+
+#: ../data/window.ui.h:2
+msgid "Select None"
+msgstr "Odstrani izbor"
+
+#: ../data/window.ui.h:3 ../src/window.js:208
+msgid "Click on locations to select them"
+msgstr "S klikom se predmeti izberejo."
+
+#: ../data/window.ui.h:4
+msgid "New"
+msgstr "Novo"
+
+#: ../data/window.ui.h:5
+msgid "Back"
+msgstr "Nazaj"
+
+#: ../data/window.ui.h:6
+msgid "Select"
+msgstr "Izbor"
+
+#: ../data/window.ui.h:7
+msgid "Cancel"
+msgstr "Prekliči"
+
+#: ../data/window.ui.h:8
+msgid "Refresh"
+msgstr "Osveži"
+
+#: ../data/window.ui.h:9
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ../src/city.js:125
+msgid "City view"
+msgstr "Pogled mesta"
+
+#: ../src/city.js:134
+msgid "Loading…"
+msgstr "Nalaganje ..."
+
+#: ../src/forecast.js:41
+msgid "Forecast"
+msgstr "Napoved"
+
+#: ../src/forecast.js:128 ../src/forecast.js:413
+msgid "Today"
+msgstr "Danes"
+
+#: ../src/forecast.js:134 ../src/forecast.js:295 ../src/forecast.js:380
+#: ../src/forecast.js:415
+msgid "Tomorrow"
+msgstr "Jutri"
+
+#: ../src/forecast.js:151
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/forecast.js:197 ../src/forecast.js:291
+msgid "More…"
+msgstr "Več ..."
+
+#: ../src/forecast.js:318
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/forecast.js:321
+msgid "%R"
+msgstr "%R"
+
+#: ../src/forecast.js:352
+msgid "Forecast for Tomorrow"
+msgstr "Napoved za jutri"
+
+#: ../src/forecast.js:354
+msgid "Forecast for Today"
+msgstr "Napoved za danes"
+
+#: ../src/forecast.js:356
+msgid "%B %d"
+msgstr "%d. %B"
+
+#: ../src/searchProvider.js:169
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#: ../src/strings.js:22
+msgid "Monday night"
+msgstr "Ponedeljek ponoči"
+
+#: ../src/strings.js:22
+msgid "Monday morning"
+msgstr "Ponedeljek zjutraj"
+
+#: ../src/strings.js:22
+msgid "Monday afternoon"
+msgstr "Ponedeljek popoldne"
+
+#: ../src/strings.js:22
+msgid "Monday evening"
+msgstr "Ponedeljek zvečer"
+
+#: ../src/strings.js:23
+msgid "Tuesday night"
+msgstr "Torek ponoči"
+
+#: ../src/strings.js:23
+msgid "Tuesday morning"
+msgstr "Torek zjutraj"
+
+#: ../src/strings.js:23
+msgid "Tuesday afternoon"
+msgstr "Torek popoldne"
+
+#: ../src/strings.js:23
+msgid "Tuesday evening"
+msgstr "Torek zvečer"
+
+#: ../src/strings.js:24
+msgid "Wednesday night"
+msgstr "Sreda ponoči"
+
+#: ../src/strings.js:24
+msgid "Wednesday morning"
+msgstr "Sreda zjutraj"
+
+#: ../src/strings.js:24
+msgid "Wednesday afternoon"
+msgstr "Sreda popoldne"
+
+#: ../src/strings.js:24
+msgid "Wednesday evening"
+msgstr "Sreda zvečer"
+
+#: ../src/strings.js:25
+msgid "Thursday night"
+msgstr "Četrtek ponoči"
+
+#: ../src/strings.js:25
+msgid "Thursday morning"
+msgstr "Četrtek zjutraj"
+
+#: ../src/strings.js:25
+msgid "Thursday afternoon"
+msgstr "Četrtek popoldne"
+
+#: ../src/strings.js:25
+msgid "Thursday evening"
+msgstr "Četrtek zvečer"
+
+#: ../src/strings.js:26
+msgid "Friday night"
+msgstr "Petek ponoči"
+
+#: ../src/strings.js:26
+msgid "Friday morning"
+msgstr "Petek zjutraj"
+
+#: ../src/strings.js:26
+msgid "Friday afternoon"
+msgstr "Petek popoldne"
+
+#: ../src/strings.js:26
+msgid "Friday evening"
+msgstr "Petek zvečer"
+
+#: ../src/strings.js:27
+msgid "Saturday night"
+msgstr "Sobota ponoči"
+
+#: ../src/strings.js:27
+msgid "Saturday morning"
+msgstr "Sobota zjutraj"
+
+#: ../src/strings.js:27
+msgid "Saturday afternoon"
+msgstr "Sobota popoldne"
+
+#: ../src/strings.js:27
+msgid "Saturday evening"
+msgstr "Sobota zvečer"
+
+#: ../src/strings.js:28
+msgid "Sunday night"
+msgstr "Nedelja ponoči"
+
+#: ../src/strings.js:28
+msgid "Sunday morning"
+msgstr "Nedelja zjutraj"
+
+#: ../src/strings.js:28
+msgid "Sunday afternoon"
+msgstr "Nedelja popoldne"
+
+#: ../src/strings.js:28
+msgid "Sunday evening"
+msgstr "Nedelja zvečer"
+
+#: ../src/strings.js:31
+msgid "Tonight"
+msgstr "Ponoči"
+
+#: ../src/strings.js:31
+msgid "This morning"
+msgstr "Danes zjutraj"
+
+#: ../src/strings.js:31
+msgid "This afternoon"
+msgstr "Danes popoldne"
+
+#: ../src/strings.js:31
+msgid "This evening"
+msgstr "Danes zvečer"
+
+#: ../src/strings.js:32
+msgid "Tomorrow night"
+msgstr "Jutri ponoči"
+
+#: ../src/strings.js:32
+msgid "Tomorrow morning"
+msgstr "Jutri zjutraj"
+
+#: ../src/strings.js:32
+msgid "Tomorrow afternoon"
+msgstr "Jutri popoldne"
+
+#: ../src/strings.js:32
+msgid "Tomorrow evening"
+msgstr "Jutri zvečer"
+
+#: ../src/window.js:203
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d izbranih"
+msgstr[1] "%d izbrano"
+msgstr[2] "%d izbrani"
+msgstr[3] "%d izbrana"
+
+#: ../src/window.js:229
+msgid "World Weather"
+msgstr "Vreme po svetu"
+
+#: ../src/window.js:318
+msgid "translator-credits"
+msgstr "Matej Urbančič <matej.urban@svn.gnome.org>"
+
+#: ../src/window.js:320
+msgid "A weather application"
+msgstr "Program za prikaz podatkov vremena"
+
+#: ../src/world.js:214
+msgid "Cities"
+msgstr "Mesta"
+
+#: ../src/world.js:231
+msgid "World view"
+msgstr "Pogled sveta"
+
+#: ../src/world.js:259
+msgid "Add locations"
+msgstr "Dodaj mesta"
+
+#: ../src/world.js:262
+msgid "Use the <b>New</b> button on the toolbar to add more world locations"
+msgstr ""
+"Uporabite gumb <b>Nov</b> v orodni vrstici, da dodate več svetovnih mest"
+
+#~ msgid "About Weather"
+#~ msgstr "O programu"
+
+#~ msgid "Click on items to select them"
+#~ msgstr "S klikom se predmeti izberejo."
+
+#~ msgid "_Preferences"
+#~ msgstr "_Nastavitve"
+
+#~ msgid "Meters (m)"
+#~ msgstr "meter (m)"
+
+#~ msgid "Kilometers (km)"
+#~ msgstr "kilometer (km)"
+
+#~ msgid "Miles (mi)"
+#~ msgstr "milja (mi)"
+
+#~ msgid "Preferences"
+#~ msgstr "Nastavitve"
+
+#~ msgid "Speed unit:"
+#~ msgstr "Merska enota za hitrost:"
+
+#~ msgid "Distance unit:"
+#~ msgstr "Merska enota za dolžino:"
+
+#~ msgid "Pressure unit:"
+#~ msgstr "Merska enota za tlak:"
+
+#~ msgid "Kilopascal (kPa)"
+#~ msgstr "kilopascal (kPa)"
+
+#~ msgid "Hectopascal (hPa)"
+#~ msgstr "hektopascal (hPa)"
+
+#~ msgid "Millibar (mbar)"
+#~ msgstr "milibar (mbar)"
+
+#~ msgid "Millimeters of mercury (mmHg)"
+#~ msgstr "milimeter živega srebra (mmHg)"
+
+#~ msgid "Inches of mercury (inchHg)"
+#~ msgstr "palec živega srebra (inchHg)"
+
+#~ msgid "Atmosphere (atm)"
+#~ msgstr "atmosfera (atm)"
+
+#~ msgid "Meters per second (m/s)"
+#~ msgstr "metri na sekundo (m/s)"
+
+#~ msgid "Kilometers per hour (km/h)"
+#~ msgstr "kilometri na uro (km/h)"
+
+#~ msgid "Miles per hour (mph)"
+#~ msgstr "milje na uro (mph)"
+
+#~ msgid "Knots"
+#~ msgstr "vozli"
+
+#~ msgid "Beaufort scale"
+#~ msgstr "Beaufortova lestvica"
+
+#~ msgid "Kelvin (K)"
+#~ msgstr "kelvin (K)"
+
+#~ msgid "Centigrade (°C)"
+#~ msgstr "stopinja Celzija (°C)"
+
+#~ msgid "Done"
+#~ msgstr "Končano"

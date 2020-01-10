@@ -1,0 +1,214 @@
+# Lithuanian translation for gnome-weather.
+# Copyright (C) 2013 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+# Aurimas Černius <aurisc4@gmail.com>, 2013, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-20 08:24+0000\n"
+"PO-Revision-Date: 2014-09-20 21:30+0300\n"
+"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Naujas"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Temperatūros vienetas"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Celcijus"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Farenheitas"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "Apie"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Išeiti"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Dabartinės sąlygos"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Šiandien"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Rytoj"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Orai"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Rodyti orų sąlygas ir prognozes"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Maža programa, kuri jums leidžia stebėti orų sąlygas jūsų mieste arba bet "
+"kur pasaulyje."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Ji leidžia matyti iki 7 dienų prognozę su valandų tikslumo informacija, "
+"teikiamą įvairių interneto tarnybų."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Ji taip pat integruojasi su GNOME Shell, leisdama matyti orų sąlygas bet "
+"paskutiniuose ieškotuose miestuose tiesiog įvedant jų pavadinimus veiklų "
+"apžvalgoje."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Nustatyti miestai orams rodyti"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"Vietos, rodomas gnome-weather pasaulio vaizde. Kiekviena vertė yra "
+"gweather_location_serialize() grąžintas GVariant."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+msgid "Automatic location"
+msgstr "Automatinė vieta"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Automatinė vieta yra automatic-location pasirinkimo vertė, kuri nusprendžia, "
+"ar gauti dabartinę vietą."
+
+#: ../data/places-popover.ui.h:1
+msgid "Automatic Location"
+msgstr "Automatinė vieta"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Ieškoma…"
+
+#: ../data/places-popover.ui.h:3
+msgid "Search for a city"
+msgstr "Ieškoti miesto"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Rodyti paskutinius"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Vietos"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Atnaujinti"
+
+#: ../data/window.ui.h:3
+#| msgid "A weather application"
+msgid "Search for a location"
+msgstr "Ieškoti vietos"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr "Informacijai matyti, įveskite miesto pavadinimą."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Miestų vaizdas"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Įkeliama…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Prognozė"
+
+#: ../src/app/forecast.js:110
+msgid "Forecast not available"
+msgstr "Prognozė neprieinama"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+msgid "Weekly Forecast"
+msgstr "Savaitinė prognozė"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+msgid "Select Location"
+msgstr "Pasirinkti vietą"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr ""
+"išvertė:\n"
+"Aurimas Černius <aurisc4@gmail.com>"
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Orų programa"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Pasaulio vaizdas"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"

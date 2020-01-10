@@ -1,0 +1,218 @@
+# Swedish translation for gnome-weather.
+# Copyright (C) 2014 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+# Marcus Lundblad <ml@update.uu.se>, 2014.
+# Sebastian Rasmussen <sebras@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-16 08:20+0000\n"
+"PO-Revision-Date: 2014-09-16 20:30+0100\n"
+"Last-Translator: Mattias Eriksson <snaggen@gmail.com>\n"
+"Language-Team: svenska <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Ny"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Temperaturenhet"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Celsius"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Fahrenheit"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "Om"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Avsluta"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Aktuella förhållanden"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Idag"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Imorgon"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Väder"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Visar prognoser och väderförhållanden"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Ett litet program som låter dig hålla koll på aktuella väderförhållanden för "
+"din stad eller andra platser i världen."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Det tillhandahåller detaljerade prognoser sju dagar framåt med detaljerad "
+"information per timme för aktuell och nästkommande dag, från diverse "
+"internettjänster."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Det integrerar också valfritt med GNOME-skalet, vilket gör det möjligt för "
+"dig att se aktuella förhållanden för de senast eftersökta städerna genom att "
+"bara skriva dess namn i Aktivitetsöversikten."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Konfigurerade städer att visa väder för"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"Platser som visas i världsvyn i gnome-weather. Vardera värde är en GVariant "
+"som returneras av gweather_location_serialize()."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+msgid "Automatic location"
+msgstr "Automatisk plats"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Den automatiska platsen är värdet av inställningen automatisk-plats som "
+"avgör huruvida den aktuella platsen ska hämtas eller ej."
+
+#: ../data/places-popover.ui.h:1
+msgid "Automatic Location"
+msgstr "Automatisk Plats"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Söker plats…"
+
+#: ../data/places-popover.ui.h:3
+msgid "Search for a city"
+msgstr "Sök efter en stad"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Senast besökta"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Platser"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: ../data/window.ui.h:3
+#| msgid "A weather application"
+msgid "Search for a location"
+msgstr "Sök efter en plats"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr "Fyll i namnet på en stad för att se väderinformation."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Stadsvy"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Laddar…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Prognos"
+
+#: ../src/app/forecast.js:110
+msgid "Forecast not available"
+msgstr "Prognos inte tillgänglig"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+msgid "Weekly Forecast"
+msgstr "Veckoprognos"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+msgid "Select Location"
+msgstr "Välj plats"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr ""
+"Marcus Lundblad <ml@update.uu.se>\n"
+"Sebastian Rasmussen <sebras@gmail.com>\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>."
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Ett väderprogram"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Världsvy"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"

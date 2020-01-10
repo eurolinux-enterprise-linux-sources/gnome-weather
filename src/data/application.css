@@ -1,0 +1,99 @@
+#weather-page-placeholder-title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#weather-page-content-view {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-origin: border-box;
+    background-clip: border-box;
+}
+
+#weather-page-content-view.weather-clear {
+    background-image: url("weather-clear.jpg");
+    color: rgba(0,0,0,0.8);
+}
+
+#weather-page-content-view.weather-clear-night {
+    background-image: url("weather-clear-night.jpg");
+    color: rgba(255,255,255,0.8);
+}
+
+#weather-page-content-view.weather-few-clouds {
+    background-image: url("weather-few-clouds.jpg");
+    color: rgba(0,0,0,0.6);
+}
+
+#weather-page-content-view.weather-few-clouds-night {
+    background-image: url("weather-few-clouds-night.jpg");
+    color: rgba(255,255,255,0.8);
+}
+
+#weather-page-content-view.weather-fog {
+    background-image: url("weather-fog.jpg");
+    background-position: center 20%;
+    color: rgba(255,255,255,0.8);
+}
+
+#weather-page-content-view.weather-overcast {
+    background-image: url("weather-overcast.jpg");
+    color: rgba(255,255,255,0.8);
+}
+
+#weather-page-content-view.weather-showers,
+#weather-page-content-view.weather-showers-scattered {
+    background-image: url("weather-showers.jpg");
+    color: rgba(255,255,255,1.0);
+}
+
+#weather-page-content-view.weather-snow {
+    background-image: url("weather-snow.jpg");
+    color: rgba(255,255,255,0.8);
+}
+
+#weather-page-content-view.weather-storm {
+    background-image: url("weather-storm.jpg");
+    background-position: center 80%;
+    color: rgba(255,255,255,0.8);
+}
+
+#loading-label {
+    padding-top: 24px;
+    font-size: 1.5em;
+}
+
+#temperature-label {
+    font-size: 4em;
+}
+
+#conditions-label {
+    font-size: 2.5em;
+    padding-bottom: 12px; /* keep in sync with conditions-image */
+}
+
+#attribution-label {
+    font-size: small;
+}
+
+#conditions-grid *:backdrop {
+    color: @theme_fg_color;
+}
+
+#conditions-image {
+    padding: 12px;
+}
+
+#weekly-forecast-frame {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.content-view.cell {
+    font-weight: bold;
+}
+
+#locations-list-box {
+    border: 1px solid @borders;
+}

@@ -1,0 +1,217 @@
+3.14.1
+======
+* Fixed compatibility with gtk+ 3.14 [#737818]
+* Translation updates
+
+3.14.0
+======
+* Translation updates and new languages
+
+3.13.92
+=======
+* Translation updates and fixes
+
+3.13.91
+=======
+* Added high contrast icon [Andreas Nilsson, #707286]
+* Translation updates
+
+3.13.90
+=======
+* Completely redesign the application [Saurabh, #733236]
+* Remove libgd submodule and make the application noarch
+* Disable the search provider by default [#734048]
+* Translation updates
+
+3.13.4
+======
+* We now use package.js from gjs upstream
+* Fixed search-provider [Debarshi Ray, #732344]
+* Misc fixes
+* Translation updates
+
+3.13.3
+======
+* Updates to the appstream metadata, and new screenshots
+  (requires a new version of libappstream-glib, or building
+  with --disable-appstream-util)
+* Various miscellaneous fixes and updates
+* Translation updates
+
+3.13.2
+======
+* Appdata metadata was updated to the new specification
+* The installation folder for the application was renamed
+  to $(datadir)/org.gnome.Weather, removing the final .Application
+  part
+* The search provided was split into a background service,
+  to avoid triggering geolocation without the user consent
+  (only the frontend application does it now)
+* Translation updates
+
+3.13.1
+======
+* Show local time in city view [Saurabh_P, #705050]
+* Add geolocation support (automatically add the current location
+  to the world view) [Saurabh_P, #704268]
+* Translation updates
+
+3.12.0
+======
+* Translation updates
+
+3.11.92
+=======
+* Fix alignment of placeholder text for first run [#721732]
+* Build fixes [Shivani Poddar, #725942]
+* Translation updates
+
+3.11.91
+=======
+* Fix problem loading the app without network connectivity
+* Fix running tests with a11y disabled [Vadim Rutkovsky, #725152]
+* Fix running tests against old pygobject+glib [Shivani Poddar, #725398]
+* Fix automake requirement [Pranav Kant, #725427]
+* Translation updates
+
+3.11.90
+=======
+* Fixed a crash at shutdown, caused by a destroy vfunc
+* Added coverage reports for tests
+* Updated for unstable GTK+ API changes (GtkActionBox)
+* Fixed the sensitivity of Add in new location dialog
+  [Saurabh_P, #724416]
+* Once again, changes to the build and deployment infrastructure...
+* Translation updates
+
+3.11.5
+======
+* JS sources are now loaded from a GResource, which should
+  improve startup times as it requires fewer seeks on disk
+* All dialogs were converted to use a header bar
+* A new infrastructure for application tests exists, and
+  minimal automated testing for the world view is included
+* Translation updates
+
+3.11.4
+======
+* Fixes for RTL layouts [Yosef Or Boczko, #721123]
+* Updates to the packaging system
+* Added the ability to build an RPM from the upstream tarball.
+* Replaced GtkHeaderBar with GtkActionBar (and gtk+ dependency
+  raised)
+* Fixed the .desktop file for legacy environments (not using
+  GIO to launch the application)
+* Translation updates
+
+3.11.3
+======
+* Always show a title in the header bar [#720322]
+* CityView is now consistent with other apps wrt the back
+  button [#720321]
+* We now follow the HIGs for standard items in the app menu
+* The sidebar can show forecast for today and tomorrow at
+  all times
+* We no longer show the night before the day, which was reported
+  as confusing
+* Translation updates
+
+3.10.1
+======
+* Translation updates and fixes
+
+3.10.0
+======
+* Translation updates
+
+3.9.92
+======
+* We now delay showing the window until the view is fully
+  loaded
+* We make use of the spinner next to the app menu when
+  refreshing the forecasts
+* Translation updates
+
+3.9.91
+======
+* Further update the UI to match the selection mode mockups
+* Add an AppData file to be used by gnome-software
+* Add a shell search provider to show weather for configured
+  locations
+* Translation updates
+
+3.9.90
+======
+* All publicly visible IDs for the application (including
+  the .desktop file name and installation folder) now
+  follow the reverse DNS notation convention, that is,
+  they are "org.gnome.Weather.Application"
+* The application is now DBus activated, and only ships
+  a shim launcher in $bindir
+* In city view, the side bar is now overlaid on the rest of
+  the content rather than pushing it
+* We use now GTK+ support for the close button in the header
+* Translation updates
+
+3.9.5
+=====
+* Fixed selection mode to latest mockups
+* Enabled OpenWeatherMap backend
+* Updated for libgweather API changes
+* Translation updates
+ 
+3.9.3
+=====
+* Fixed icon handling in GWeatherLocationEntry due
+  to the ABI change in libgweather
+* Replaced most of libgd with Gtk types (still using
+  GdMainView only)
+* Now using the header bar as a titlebar (fixes the close
+  button when maximized)
+* Includes a new application icon, designed specifically
+  for gnome-weather
+* Once again fixed launching the application in certain
+  "looks-like-source-tree" cases
+* Translation updates
+
+3.9.2
+=====
+* Updated libgd, but mostly replaced with Gtk types
+* Added a welcome screen for the first launch
+* The app menu now offers a choice for the temperature unit
+* Implements the new selection pattern, with a separate
+  selection toolbar and rubberbanding
+* Improved the libgweather usage to support disk caching
+
+3.8.2
+=====
+* Update libgd to master
+* Fix detection of source trees at startup
+* Translation updates
+
+3.8.1
+=====
+* Update libgd to master
+* Translation updates
+
+3.8.0
+=====
+
+* Translation updates
+
+3.7.92
+======
+
+* First release to follow GNOME versioning
+* Application completely rewritten in JS + gtk + libgd (no longer
+  uses clutter-gtk)
+* Features a full GNOME 3 layout (header bar, content view,
+  selection toolbar, application menu)
+* Includes the ability to show multiple cities at once
+* Uses dark theme and symbolic icons
+* Includes pretty backgrounds matching the current conditions
+* Many many bugfixes and translation fixes
+
+0.2
+===
+* Initial release, first one to be published at GNOME archives

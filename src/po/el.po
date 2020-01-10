@@ -1,0 +1,392 @@
+# Greek translation for gnome-weather.
+# Copyright (C) 2013 gnome-weather's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-weather package.
+# Dimitris Spingos <dmtrs32@gmail.com>, 2013.
+# Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2013, 2014.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-weather master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"weather&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2014-09-18 20:21+0000\n"
+"PO-Revision-Date: 2014-09-19 09:16+0200\n"
+"Last-Translator: Maria Mavridou <mavridou@gmail.com>\n"
+"Language-Team: www.gnome.gr\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.6.4\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/app-menu.ui.h:1
+msgid "_New"
+msgstr "_Νέο"
+
+#: ../data/app-menu.ui.h:2
+msgid "Temperature unit"
+msgstr "Μονάδα θερμοκρασίας"
+
+#: ../data/app-menu.ui.h:3
+msgid "Celsius"
+msgstr "Βαθμοί Κελσίου"
+
+#: ../data/app-menu.ui.h:4
+msgid "Fahrenheit"
+msgstr "Φαρενάϊτ"
+
+#: ../data/app-menu.ui.h:5
+msgid "About"
+msgstr "Περί"
+
+#: ../data/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Έξοδος"
+
+#: ../data/city.ui.h:1
+msgid "Current conditions"
+msgstr "Παρούσες συνθήκες"
+
+#: ../data/city.ui.h:2
+msgid "Today"
+msgstr "Σήμερα"
+
+#: ../data/city.ui.h:3
+msgid "Tomorrow"
+msgstr "Αύριο"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:1 ../src/app/main.js:52
+#: ../src/app/window.js:192 ../src/service/main.js:49
+msgid "Weather"
+msgstr "Καιρός"
+
+#: ../data/org.gnome.Weather.Application.desktop.in.h:2
+msgid "Show weather conditions and forecast"
+msgstr "Εμφάνιση συνθηκών καιρού και πρόβλεψης"
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:1
+msgid ""
+"A small application that allows you to monitor the current weather "
+"conditions for your city, or anywhere in the world."
+msgstr ""
+"Μια μικρή εφαρμογή που σας επιτρέπει να παρακολουθείτε τις τρέχουσες "
+"καιρικές συνθήκες για την πόλη σας, ή για οποιαδήποτε άλλη τοποθεσία στον "
+"κόσμο."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:2
+msgid ""
+"It provides access to detailed forecasts, up to 7 days, with hourly details "
+"for the current and next day, using various internet services."
+msgstr ""
+"Παρέχει πρόσβαση σε λεπτομερείς προβλέψεις, έως και 7 ημέρες, με ωριαία "
+"στοιχεία για την τρέχουσα και την επόμενη μέρα, με τη χρήση διαφόρων "
+"υπηρεσιών διαδικτύου."
+
+#: ../data/org.gnome.Weather.Application.appdata.xml.in.h:3
+msgid ""
+"It also optionally integrates with the GNOME Shell, allowing you see the "
+"current conditions of the most recently searched cities by just typing its "
+"name in the Activities Overview."
+msgstr ""
+"Επίσης ενσωματώνεται προαιρετικά με το GNOME Shell, επιτρέποντάς σας να "
+"δείτε τις τρέχουσες συνθήκες οποιασδήποτε πόλης έχει ρυθμιστεί απλά "
+"πληκτρολογώντας το όνομα στην επισκόπιση Δραστηριότητες."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:1
+msgid "Configured cities to show weather for"
+msgstr "Ρυθμισμένες πόλεις για τις οποίες θα εμφανίζεται ο καιρός"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:2
+msgid ""
+"The locations shown in the world view of gnome-weather. Each value is a "
+"GVariant returned by gweather_location_serialize()."
+msgstr ""
+"Οι εμφανιζόμενες τοποθεσίες στην παγκόσμια προβολή του προγράμματος gnome-"
+"weather. Κάθε τιμή είναι μια μεταβλητή GVariant που επιστρέφεται από το "
+"gweather_location_serialize()."
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:3
+msgid "Automatic location"
+msgstr "Αυτόματη τοποθεσία"
+
+#: ../data/org.gnome.Weather.Application.gschema.xml.h:4
+msgid ""
+"The automatic location is the value of automatic-location switch which "
+"decides whether to fetch current location or not."
+msgstr ""
+"Η αυτόματη τοποθεσία είναι η τιμή του διακόπτη automatic-location, ο οποίος "
+"αποφασίζει εάν θα ανακτηθεί η τρέχουσα τοποθεσία ή όχι."
+
+#: ../data/places-popover.ui.h:1
+msgid "Automatic Location"
+msgstr "Αυτόματη τοποθεσία"
+
+#: ../data/places-popover.ui.h:2
+#| msgid "Loading…"
+msgid "Locating…"
+msgstr "Εντοπισμός…"
+
+#: ../data/places-popover.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a city"
+msgstr "Αναζήτηση πόλης"
+
+#: ../data/places-popover.ui.h:4
+msgid "Viewed Recently"
+msgstr "Πρόσφατα"
+
+#: ../data/window.ui.h:1
+msgid "Places"
+msgstr "Τοποθεσίες"
+
+#: ../data/window.ui.h:2
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: ../data/window.ui.h:3
+#| msgid "Search for a city:"
+msgid "Search for a location"
+msgstr "Αναζήτηση τοποθεσίας"
+
+#: ../data/window.ui.h:4
+msgid "To see weather information, enter the name of a city."
+msgstr ""
+"Για να δείτε πληροφορίες για τον καιρό, πληκτρολογήστε το όνομα μιας πόλης."
+
+#: ../src/app/city.js:190
+msgid "City view"
+msgstr "Εμφάνιση πόλης"
+
+#: ../src/app/city.js:199
+msgid "Loading…"
+msgstr "Φορτώνεται…"
+
+#: ../src/app/city.js:273
+msgid "%H:%M"
+msgstr "%H:%M"
+
+#: ../src/app/forecast.js:37
+msgid "Forecast"
+msgstr "Πρόγνωση"
+
+#: ../src/app/forecast.js:110
+msgid "Forecast not available"
+msgstr "Η πρόγνωση δεν είναι διαθέσιμη"
+
+#: ../src/app/forecast.js:126
+msgid "%l∶%M %p"
+msgstr "%l∶%M %p"
+
+#: ../src/app/forecast.js:129
+msgid "%R"
+msgstr "%R"
+
+#: ../src/app/weeklyForecast.js:36
+msgid "Weekly Forecast"
+msgstr "Εβδομαδιαία πρόγνωση"
+
+#: ../src/app/weeklyForecast.js:107
+msgid "%A"
+msgstr "%A"
+
+#: ../src/app/window.js:120
+msgid "Select Location"
+msgstr "Επιλογή τοποθεσίας"
+
+#: ../src/app/window.js:191
+msgid "translator-credits"
+msgstr ""
+"Ελληνική μεταφραστική ομάδα GNOME  \n"
+" Δημήτρης Σπίγγος <dmtrs32@gmail.com>\n"
+" Ευστάθιος Ιωσηφίδης <iosifidis@opensuse.org>\n"
+" Μαρία Θουκυδίδου <marablack3@gmail.com>\n"
+" Μαρία Μαυρίδου <mavridou@gmail.com>\n"
+"\n"
+"Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
+"http://gnome.gr/"
+
+#: ../src/app/window.js:193
+msgid "A weather application"
+msgstr "Μια εφαρμογή για τον καιρό"
+
+#: ../src/app/world.js:38
+msgid "World view"
+msgstr "Εμφάνιση παγκόσμιου καιρού"
+
+#: ../src/misc/util.js:159
+#, javascript-format
+msgid "%s / %s"
+msgstr "%s / %s"
+
+#: ../src/service/searchProvider.js:182
+#, javascript-format
+msgid "%s, %s"
+msgstr "%s, %s"
+
+#~ msgid "Detailed forecast"
+#~ msgstr "Αναλυτική πρόγνωση"
+
+#~ msgid "Select All"
+#~ msgstr "Επιλογή όλων"
+
+#~ msgid "Select None"
+#~ msgstr "Επιλογή κανενός"
+
+#~ msgid "Click on locations to select them"
+#~ msgstr "Πατήστε στις τοποθεσίες για να τις επιλέξετε"
+
+#~ msgid "New"
+#~ msgstr "Νέο"
+
+#~ msgid "Back"
+#~ msgstr "Πίσω"
+
+#~ msgid "Select"
+#~ msgstr "Επιλογή"
+
+#~ msgid "Cancel"
+#~ msgstr "Ακύρωση"
+
+#~ msgid "Delete"
+#~ msgstr "Διαγραφή"
+
+#~ msgid "More…"
+#~ msgstr "Περισσότερα…"
+
+#~ msgid "Forecast for Tomorrow"
+#~ msgstr "Πρόβλεψη για αύριο"
+
+#~ msgid "%B %d"
+#~ msgstr "%B %d"
+
+#~ msgid "%d selected"
+#~ msgid_plural "%d selected"
+#~ msgstr[0] "%d επιλεγμένο"
+#~ msgstr[1] "%d επιλεγμένα"
+
+#~ msgid "World Weather"
+#~ msgstr "Παγκόσμιος καιρός"
+
+#~ msgid "Monday night"
+#~ msgstr "Δευτέρα νύχτα"
+
+#~ msgid "Monday morning"
+#~ msgstr "Δευτέρα πρωί"
+
+#~ msgid "Monday afternoon"
+#~ msgstr "Δευτέρα απόγευμα"
+
+#~ msgid "Monday evening"
+#~ msgstr "Δευτέρα βράδυ"
+
+#~ msgid "Tuesday night"
+#~ msgstr "Τρίτη νύχτα"
+
+#~ msgid "Tuesday morning"
+#~ msgstr "Τρίτη πρωί"
+
+#~ msgid "Tuesday afternoon"
+#~ msgstr "Τρίτη απόγευμα"
+
+#~ msgid "Tuesday evening"
+#~ msgstr "Τρίτη βράδυ"
+
+#~ msgid "Wednesday night"
+#~ msgstr "Τετάρτη νύχτα"
+
+#~ msgid "Wednesday morning"
+#~ msgstr "Τετάρτη πρωί"
+
+#~ msgid "Wednesday afternoon"
+#~ msgstr "Τετάρτη απόγευμα"
+
+#~ msgid "Wednesday evening"
+#~ msgstr "Τετάρτη βράδυ"
+
+#~ msgid "Thursday night"
+#~ msgstr "Πέμπτη νύχτα"
+
+#~ msgid "Thursday morning"
+#~ msgstr "Πέμπτη πρωί"
+
+#~ msgid "Thursday afternoon"
+#~ msgstr "Πέμπτη απόγευμα"
+
+#~ msgid "Thursday evening"
+#~ msgstr "Πέμπτη βράδυ"
+
+#~ msgid "Friday night"
+#~ msgstr "Παρασκευή νύχτα"
+
+#~ msgid "Friday morning"
+#~ msgstr "Παρασκευή πρωί"
+
+#~ msgid "Friday afternoon"
+#~ msgstr "Παρασκευή απόγευμα"
+
+#~ msgid "Friday evening"
+#~ msgstr "Παρασκευή βράδυ"
+
+#~ msgid "Saturday night"
+#~ msgstr "Σαββάτο νύχτα"
+
+#~ msgid "Saturday morning"
+#~ msgstr "Σαββάτο πρωί"
+
+#~ msgid "Saturday afternoon"
+#~ msgstr "Σαββάτο απόγευμα"
+
+#~ msgid "Saturday evening"
+#~ msgstr "Σαββάτο βράδυ"
+
+#~ msgid "Sunday night"
+#~ msgstr "Κυριακή νύχτα"
+
+#~ msgid "Sunday morning"
+#~ msgstr "Κυριακή πρωί"
+
+#~ msgid "Sunday afternoon"
+#~ msgstr "Κυριακή απόγευμα"
+
+#~ msgid "Sunday evening"
+#~ msgstr "Κυριακή βράδυ"
+
+#~ msgid "Tonight"
+#~ msgstr "Απόψε"
+
+#~ msgid "This morning"
+#~ msgstr "Αυτό το πρωί"
+
+#~ msgid "This afternoon"
+#~ msgstr "Αυτό το απόγευμα"
+
+#~ msgid "This evening"
+#~ msgstr "Αυτό το βράδυ"
+
+#~ msgid "Tomorrow night"
+#~ msgstr "Αύριο τη νύχτα"
+
+#~ msgid "Tomorrow morning"
+#~ msgstr "Αύριο το πρωί"
+
+#~ msgid "Tomorrow afternoon"
+#~ msgstr "Αύριο το απόγευμα"
+
+#~ msgid "Tomorrow evening"
+#~ msgstr "Αύριο το βράδυ"
+
+#~ msgid "Cities"
+#~ msgstr "Πόλεις"
+
+#~ msgid "Use the <b>New</b> button on the toolbar to add more world locations"
+#~ msgstr ""
+#~ "Χρησιμοποιήστε το κουμπί <b>Νέο</b> στην εργαλειοθήκη, για την προσθήκη "
+#~ "περισσότερων παγκόσμιων τοποθεσιών"
+
+#~ msgid "label"
+#~ msgstr "ετικέτα"
+
+#~ msgid "About Weather"
+#~ msgstr "Για τον καιρό"
