@@ -16,9 +16,10 @@
 // with Gnome Weather; if not, write to the Free Software Foundation,
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
-const Gtk = imports.gi.Gtk;
+const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gnome = imports.gi.GnomeDesktop;
+const Gtk = imports.gi.Gtk;
 const Lang = imports.lang;
 
 const Forecast = imports.app.forecast;
@@ -28,9 +29,18 @@ const Util = imports.misc.util;
 
 const SPINNER_SIZE = 128;
 
+const SCROLLING_ANIMATION_TIME = 400000; //us
+
 const WeatherWidget = new Lang.Class({
     Name: 'WeatherWidget',
     Extends: Gtk.Frame,
+    Template: 'resource:///org/gnome/Weather/Application/weather-widget.ui',
+    InternalChildren: ['contentFrame', 'outerGrid', 'conditionsImage',
+                       'temperatureLabel', 'conditionsLabel',
+                       'timeLabel', 'timeGrid', 'forecastStack',
+                       'leftButton', 'rightButton',
+                       'forecast-today-grid', 'forecast-tomorrow-grid',
+                       'forecast-today', 'forecast-tomorrow'],
 
     _init: function(params) {
         params = Params.fill(params, { shadow_type: Gtk.ShadowType.NONE,
@@ -40,137 +50,145 @@ const WeatherWidget = new Lang.Class({
         this._currentStyle = null;
         this._info = null;
 
-        let builder = new Gtk.Builder();
-        builder.add_from_resource('/org/gnome/Weather/Application/city.ui');
-
-        let outerBox = builder.get_object('outer-box');
-        this._contentFrame = builder.get_object('content-frame');
-        this._outerGrid = builder.get_object('outer-grid');
-        this._forecastGrid = builder.get_object('forecast-grid');
-        this._wForecastFrame = builder.get_object('weekly-forecast-frame');
-        let forecastScrollingWindow = builder.get_object('forecast-scrolled-window');
-        this._icon = builder.get_object('conditions-image');
-        this._temperature = builder.get_object('temperature-label');
-        this._conditions = builder.get_object('conditions-label');
-        this.timeLabel = builder.get_object('time-label');
-        this.timeGrid = builder.get_object('time-grid');
-        this._dayStack = builder.get_object('day-stack');
-        this._leftButton = builder.get_object('left-button');
-        this._rightButton = builder.get_object('right-button');
-
-        this._forecasts = new Forecast.ForecastBox({ hexpand: false });
-        this._forecastGrid.attach(this._forecasts, 0, 0, 1, 1);
-
         this._weeklyForecasts = new WForecast.WeeklyForecastFrame();
         this._outerGrid.attach(this._weeklyForecasts, 1, 0, 1, 2);
 
-        this._hscrollbar = forecastScrollingWindow.get_hscrollbar();
-        this._hscrollbar.set_opacity(0.0);
+        this._forecasts = { };
 
-        this._hadjustment = forecastScrollingWindow.get_hadjustment();
+        for (let t of ['today', 'tomorrow']) {
+            let box = new Forecast.ForecastBox({ hexpand: false });
 
-        this._hadjustment.connect('changed', Lang.bind(this, function() {
-            if ((this._hadjustment.get_upper() - this._hadjustment.get_lower()) == this._hadjustment.page_size) {
-                this._leftButton.set_sensitive(false);
-                this._rightButton.set_sensitive(false);
-            } else if (this._hadjustment.value == this._hadjustment.get_lower()){
-                this._leftButton.set_sensitive(false);
-                this._rightButton.set_sensitive(true);
-            } else if (this._hadjustment.value >= (this._hadjustment.get_upper() - this._hadjustment.page_size)){
-                this._leftButton.set_sensitive(true);
-                this._rightButton.set_sensitive(false);
-            } else {
-                this._leftButton.set_sensitive(true);
-                this._rightButton.set_sensitive(true);
+            this._forecasts[t] = box;
+            this['_forecast_' + t + '_grid'].add(box);
+
+            let fsw = this['_forecast_' + t];
+            let hscrollbar = fsw.get_hscrollbar();
+            hscrollbar.set_opacity(0.0);
+            hscrollbar.hide();
+            let hadjustment = fsw.get_hadjustment();
+            hadjustment.connect('changed', Lang.bind(this, this._syncLeftRightButtons));
+            hadjustment.connect('value-changed', Lang.bind(this, this._syncLeftRightButtons));
+        }
+
+        this._forecastStack.connect('notify::visible-child', Lang.bind(this, function() {
+            let visible_child = this._forecastStack.visible_child;
+            if (visible_child == null)
+                return; // can happen at destruction
+
+            let hadjustment = visible_child.get_hadjustment();
+            hadjustment.value = hadjustment.get_lower();
+            this._syncLeftRightButtons();
+
+            if (this._tickId) {
+                this.remove_tick_callback(this._tickId);
+                this._tickId = 0;
             }
         }));
 
-        this._dayStack.connect('notify::visible-child', Lang.bind(this, function() {
-            this.clear();
-            if (this._info) {
-                let forecasts = this._info.get_forecast_list();
-                this._forecasts.update(forecasts, this._dayStack.get_visible_child_name());
-                this._hadjustment.value = this._hadjustment.get_lower();
-                this._forecasts.show();
-            }
-        }));
+        this._tickId = 0;
 
         this._leftButton.connect('clicked', Lang.bind(this, function() {
-            this._target = this._hadjustment.value - this._hadjustment.page_size;
-            if (this._target <= this._hadjustment.get_lower()) {
-                this._leftButton.set_sensitive(false);
-                this._rightButton.set_sensitive(true);
-            } else
-                this._rightButton.set_sensitive(true);
+            let hadjustment = this._forecastStack.visible_child.get_hadjustment();
+            let target = hadjustment.value - hadjustment.page_size;
 
-            this._start = new Date().getTime();
-            this._end = this._start + 328;
-            this._tickId = this._forecastGrid.add_tick_callback(Lang.bind(this, this._animate));
+            this._beginScrollAnimation(target);
         }));
 
         this._rightButton.connect('clicked', Lang.bind(this, function() {
-            this._target = this._hadjustment.value + this._hadjustment.page_size;
-            if (this._target >= this._hadjustment.get_upper() - this._hadjustment.page_size) {
-                this._rightButton.set_sensitive(false);
-                this._leftButton.set_sensitive(true);
-            } else
-                this._leftButton.set_sensitive(true);
+            let hadjustment = this._forecastStack.visible_child.get_hadjustment();
+            let target = hadjustment.value + hadjustment.page_size;
 
-            this._start = new Date().getTime();
-            this._end = this._start + 328;
-            this._tickId = this._forecastGrid.add_tick_callback(Lang.bind(this, this._animate));
+            this._beginScrollAnimation(target);
         }));
-
-        this.add(outerBox);
     },
 
-    _animate: function() {
-        let value = this._hadjustment.value;
+    _syncLeftRightButtons: function() {
+        let hadjustment = this._forecastStack.visible_child.get_hadjustment();
+        if ((hadjustment.get_upper() - hadjustment.get_lower()) == hadjustment.page_size) {
+            this._leftButton.set_sensitive(false);
+            this._rightButton.set_sensitive(false);
+        } else if (hadjustment.value == hadjustment.get_lower()){
+            this._leftButton.set_sensitive(false);
+            this._rightButton.set_sensitive(true);
+        } else if (hadjustment.value >= (hadjustment.get_upper() - hadjustment.page_size)){
+            this._leftButton.set_sensitive(true);
+            this._rightButton.set_sensitive(false);
+        } else {
+            this._leftButton.set_sensitive(true);
+            this._rightButton.set_sensitive(true);
+        }
+    },
+
+    _beginScrollAnimation: function(target) {
+        let start = this.get_frame_clock().get_frame_time();
+        let end = start + SCROLLING_ANIMATION_TIME;
+
+        if (this._tickId != 0)
+            this.remove_tick_callback(this._tickId);
+
+        this._tickId = this.add_tick_callback(Lang.bind(this, function() {
+            return this._animate(target, start, end);
+        }));
+    },
+
+    _animate: function(target, start, end) {
+        let hadjustment = this._forecastStack.visible_child.get_hadjustment();
+        let value = hadjustment.value;
         let t = 1.0;
-        let now = new Date().getTime();
-        if (now < this._end) {
-            t = (now - this._start) / 700;
-            t = this._easeOutCubic (t);
-            this._hadjustment.value = value + t * (this._target - value);
+        let now = this.get_frame_clock().get_frame_time();
+
+        if (now < end) {
+            t = (now - start) / SCROLLING_ANIMATION_TIME;
+            t = Util.easeOutCubic (t);
+            hadjustment.value = value + t * (target - value);
             return true;
         } else {
-            this._hadjustment.value = value + t * (this._target - value);
-            this._forecastGrid.remove_tick_callback(this._tickId);
+            hadjustment.value = value + t * (target - value);
+            this._tickId = 0;
             return false;
         }
     },
 
-    _easeOutCubic: function(value) {
-        let temp = value - 1;
-        return temp * temp * temp + 1;
-    },
-
     clear: function() {
-        this._forecasts.clear();
+        for (let t of ['today', 'tomorrow'])
+            this._forecasts[t].clear();
+
+        if (this._tickId) {
+            this.remove_tick_callback(this._tickId);
+            this._tickId = 0;
+        }
     },
 
-    _get_style_class: function(info) {
+    _getStyleClass: function(info) {
         let icon = info.get_icon_name();
         let name = icon.replace(/(-\d{3})/, "");
         return name;
     },
 
+    setTimeVisible: function(visible) {
+        this._timeGrid.visible = visible;
+    },
+
+    setTime: function(time) {
+        this._timeLabel.label = time;
+    },
+
     update: function(info) {
         this._info = info;
 
-        this._conditions.label = Util.getWeatherConditions(info);
-        this._temperature.label = info.get_temp_summary();
+        this._conditionsLabel.label = Util.getWeatherConditions(info);
+        this._temperatureLabel.label = info.get_temp_summary();
 
-        this._icon.icon_name = info.get_symbolic_icon_name();
+        this._conditionsImage.icon_name = info.get_symbolic_icon_name();
         let context = this._contentFrame.get_style_context();
         if (this._currentStyle)
             context.remove_class(this._currentStyle);
-        this._currentStyle = this._get_style_class(info);
+        this._currentStyle = this._getStyleClass(info);
         context.add_class(this._currentStyle);
 
         let forecasts = info.get_forecast_list();
-        this._forecasts.update(forecasts, this._dayStack.get_visible_child_name());
-        this._forecasts.show();
+        for (let t of ['today', 'tomorrow'])
+            this._forecasts[t].update(forecasts, t);
 
         if (forecasts.length == 0) {
             this._weeklyForecasts.hide();
@@ -184,24 +202,14 @@ const WeatherWidget = new Lang.Class({
 const WeatherView = new Lang.Class({
     Name: 'WeatherView',
     Extends: Gtk.Stack,
+    Template: 'resource:///org/gnome/Weather/Application/city.ui',
+    InternalChildren: ['spinner'],
 
     _init: function(params) {
         this.parent(params);
-        this.get_accessible().accessible_name = _("City view");
 
-        let loadingPage = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                         halign: Gtk.Align.CENTER,
-                                         valign: Gtk.Align.CENTER });
-
-        this._spinner = new Gtk.Spinner({ height_request: SPINNER_SIZE,
-                                          width_request: SPINNER_SIZE });
-        loadingPage.add(this._spinner);
-        loadingPage.add(new Gtk.Label({ label: _("Loading…"),
-                                        name: "loading-label" }));
-        this.add_named(loadingPage, 'loading');
-
-        this.infoPage = new WeatherWidget();
-        this.add_named(this.infoPage, 'info');
+        this._infoPage = new WeatherWidget();
+        this.add_named(this._infoPage, 'info');
 
         this._info = null;
         this._updateId = 0;
@@ -209,7 +217,9 @@ const WeatherView = new Lang.Class({
         this.connect('destroy', Lang.bind(this, this._onDestroy));
 
         this._wallClock = new Gnome.WallClock();
-        this._clockHandlerId = null;
+        this._clockHandlerId = 0;
+
+        this._desktopSettings = new Gio.Settings({ schema_id: 'org.gnome.desktop.interface' });
     },
 
     get info() {
@@ -221,7 +231,7 @@ const WeatherView = new Lang.Class({
             this._info.disconnect(this._updateId);
             this._updateId = 0;
 
-            this.infoPage.clear();
+            this._infoPage.clear();
         }
 
         this._info = info;
@@ -244,25 +254,34 @@ const WeatherView = new Lang.Class({
     update: function() {
         this.visible_child_name = 'loading';
         this._spinner.start();
-        this.infoPage.clear();
+        this._infoPage.clear();
 
         getApp().model.updateInfo(this._info);
     },
 
     _onUpdate: function(info) {
-        this.infoPage.clear();
-        this.infoPage.update(info);
+        this._infoPage.clear();
+        this._infoPage.update(info);
         this._updateTime();
         this._spinner.stop();
         this.visible_child_name = 'info';
     },
 
-    connectClock: function() {
-        this._clockHandlerId = this._wallClock.connect('notify::clock', Lang.bind(this, this._updateTime));
+    setTimeVisible: function(visible) {
+        if (this._clockHandlerId && !visible) {
+            this._wallClock.disconnect(this._clockHandlerId);
+            this._clockHandlerId = 0;
+        }
+
+        if (!this._clockHandlerId && visible) {
+            this._clockHandlerId = this._wallClock.connect('notify::clock', Lang.bind(this, this._updateTime));
+        }
+
+        this._infoPage.setTimeVisible(visible);
     },
 
     _updateTime: function() {
-        this.infoPage.timeLabel.label = this._getTime();
+        this._infoPage.setTime(this._getTime());
     },
 
     _getTime: function() {
@@ -270,15 +289,11 @@ const WeatherView = new Lang.Class({
             let location = this._info.location;
             let tz = GLib.TimeZone.new(location.get_timezone().get_tzid());
             let dt = GLib.DateTime.new_now(tz);
-            return dt.format(_("%H:%M"));
+
+            return this._wallClock.string_for_datetime (dt,
+                                                        this._desktopSettings.get_enum('clock-format'),
+                                                        false, false, false);
         }
         return null;
-    },
-
-    disconnectClock: function() {
-        if (this._clockHandlerId) {
-            this._wallClock.disconnect(this._clockHandlerId);
-            this._clockHandlerId = null;
-        }
     }
 });

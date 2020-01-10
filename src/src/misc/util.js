@@ -153,9 +153,9 @@ function getTemperature(info) {
     let [ok2, ] = info.get_value_temp_max(GWeather.TemperatureUnit.DEFAULT);
 
     if (ok1 && ok2) {
-        // TRANSLATORS: this is the temperature string, minimum and maximum.
-        // The two values are already formatted, so it would be something like
-        // "7 °C / 19 °C"
+        /* TRANSLATORS: this is the temperature string, minimum and maximum.
+           The two values are already formatted, so it would be something like
+           "7 °C / 19 °C" */
         return _("%s / %s").format(info.get_temp_min(), info.get_temp_max());
     } else {
         return info.get_temp_summary();
@@ -169,4 +169,9 @@ function getEnabledProviders() {
     } else {
         return (GWeather.Provider.METAR | GWeather.Provider.YR_NO | GWeather.Provider.OWM);
     }
+}
+
+function easeOutCubic(value) {
+    let t = value - 1;
+    return t * t * t + 1;
 }

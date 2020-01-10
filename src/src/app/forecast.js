@@ -66,12 +66,13 @@ const ForecastBox = new Lang.Class({
             let datetime = GLib.DateTime.new_from_unix_local(date);
 
             if (Util.arrayEqual(now.get_ymd(), datetime.get_ymd())) {
+                ret.push(info);
                 current = datetime;
                 break;
             }
         }
 
-        for ( ; i < infos.length; i++) {
+        for (i++ ; i < infos.length; i++) {
             let info = infos[i];
 
             let [ok, date] = info.get_value_update();
@@ -91,17 +92,17 @@ const ForecastBox = new Lang.Class({
     },
 
     update: function(infos, day) {
-        if (infos.length > 0) {
-            let now = GLib.DateTime.new_now_local();
-            if (day == "tomorrow-button")
-                now = now.add_days(1);
-            let dayInfo = this._preprocess(now, infos);
+        let now = GLib.DateTime.new_now_local();
+        if (day == 'tomorrow')
+            now = now.add_days(1);
+        let dayInfo = this._preprocess(now, infos);
 
-            if (dayInfo.length == 0) {
-                now = now.add_hours(-2);
-                dayInfo = this._preprocess(now, infos);
-            }
+        if (dayInfo.length == 0) {
+            now = now.add_hours(-2);
+            dayInfo = this._preprocess(now, infos);
+        }
 
+        if (dayInfo.length > 0) {
             for (let i = 0; i < dayInfo.length; i++) {
                 let info = dayInfo[i];
                 this._addOneInfo(info, i);
@@ -122,10 +123,10 @@ const ForecastBox = new Lang.Class({
         let timeFormat = null;
 
         if (timeSetting == '12h')
-            // Translators: this is a time format without date used for AM/PM
+            /* Translators: this is a time format without date used for AM/PM */
             timeFormat = _("%l∶%M %p");
         else
-            // Translators: this is a time format without date used for 24h mode
+            /* Translators: this is a time format without date used for 24h mode */
             timeFormat = _("%R");
 
         let label = new Gtk.Label({ label: datetime.format(timeFormat),

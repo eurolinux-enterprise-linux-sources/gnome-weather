@@ -1,16 +1,16 @@
 %global gjs_version 1.39.91
 %global gobject_introspection_version 1.35.9
 %global gtk3_version 3.11.4
-%global libgweather_version 3.9.5
+%global libgweather_version 3.17.2
 
 Name:		gnome-weather
-Version:	3.14.1
+Version:	3.20.2
 Release:	1%{?dist}
 Summary:	A weather application for GNOME
 
 License:	GPLv2+ and LGPLv2+ and MIT and CC-BY and CC-BY-SA
 URL:		https://live.gnome.org/Design/Apps/Weather
-Source0:	http://download.gnome.org/sources/%{name}/3.14/%{name}-%{version}.tar.xz
+Source0:	http://download.gnome.org/sources/%{name}/3.20/%{name}-%{version}.tar.xz
 
 BuildArch:	noarch
 
@@ -22,6 +22,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection >= %{gobject_introspection_version}
 BuildRequires:	gtk3-devel >= %{gtk3_version}
 BuildRequires:	libgweather-devel >= %{libgweather_version}
+BuildRequires:	pkgconfig(libgeoclue-2.0) >= 2.3.1
 
 Requires:	gdk-pixbuf2
 Requires:	gjs >= %{gjs_version}
@@ -33,15 +34,25 @@ Requires:	libgweather >= %{libgweather_version}
 %description
 gnome-weather is a weather application for GNOME
 
+%package tests
+Summary: Tests for the gnome-weather package
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+
+%description tests
+The gnome-weather-tests package contains tests that can be used to verify
+the functionality of the installed gnome-weather package.
+
+
 %prep
 %setup -q
 
 %build
-%configure --disable-static
+%configure --disable-static --enable-installed-tests
 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 find $RPM_BUILD_ROOT -name '*.la' -exec rm -f {} ';'
 
 %find_lang org.gnome.Weather
@@ -51,23 +62,20 @@ desktop-file-validate $RPM_BUILD_ROOT/%{_datadir}/applications/org.gnome.Weather
 
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
-touch --no-create %{_datadir}/icons/HighContrast &>/dev/null || :
 
 %postun
 if [ $1 -eq 0 ] ; then
     glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
     touch --no-create %{_datadir}/icons/hicolor &>/dev/null
-    touch --no-create %{_datadir}/icons/HighContrast &>/dev/null
     gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-    gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 fi
 
 %posttrans
 glib-compile-schemas %{_datadir}/glib-2.0/schemas &> /dev/null || :
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
-gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 
 %files -f org.gnome.Weather.lang
+%license COPYING
 %doc NEWS data/CREDITS
 %{_bindir}/gnome-weather
 %{_datadir}/appdata/org.gnome.Weather.Application.appdata.xml
@@ -78,11 +86,19 @@ gtk-update-icon-cache %{_datadir}/icons/HighContrast &>/dev/null || :
 %dir %{_datadir}/gnome-shell/
 %dir %{_datadir}/gnome-shell/search-providers/
 %{_datadir}/gnome-shell/search-providers/org.gnome.Weather.Application.search-provider.ini
-%{_datadir}/icons/hicolor/*/apps/org.gnome.Weather.Application.png
-%{_datadir}/icons/HighContrast/*/apps/org.gnome.Weather.Application.png
+%{_datadir}/icons/hicolor/*/apps/org.gnome.Weather.png
+%{_datadir}/icons/hicolor/symbolic/apps/org.gnome.Weather-symbolic.svg
 %{_datadir}/org.gnome.Weather/
 
+%files tests
+%{_libexecdir}/installed-tests/org.gnome.Weather/
+%{_datadir}/installed-tests
+
 %changelog
+* Thu Feb 23 2017 Matthias Clasen <mclasen@redhat.com> - 3.20.2-1
+- Rebase to 3.20.2
+  Resolves: rhbz#1386969
+
 * Mon Mar 23 2015 Richard Hughes <rhughes@redhat.com> - 3.14.1-1
 - Update to 3.14.1
 - Resolves: #1174587

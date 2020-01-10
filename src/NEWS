@@ -1,3 +1,102 @@
+3.20.2
+======
+* Minor bug fixes
+* Translation updates
+
+3.20.1
+======
+* Build system fixes
+* Translation updates
+
+3.20.0
+======
+* Translation updates
+
+3.19.92
+=======
+* Translation updates
+
+3.19.90
+=======
+* Fix missing items in forecast [#757186]
+* Add support for Geoclue agent dialog [Zeeshan Ali, #762102]
+* Add missing tags to Appdata [Richard Hughes]
+* Build system updates and xdg-app support
+* Translation updates
+
+3.19.1
+======
+* Convert from DBus API to libgeoclue [Zeeshan Ali, #756647]
+
+3.18.1
+======
+* Translation updates
+
+3.18.0
+======
+* Translation updates
+
+3.17.92
+=======
+* Improved background for licensing and legibility [Jakub Steiner, #703150, #754892]
+* Translation updates and fixes
+
+3.17.1
+======
+* Fix initial application state when geolocation is disabled
+* Fix temperature unit shown in the menu when not explicitly configured
+* Translation updates
+
+3.16.2.1
+========
+* A symbolic variant of the app icon is provided
+
+3.16.2
+======
+* Honor 12/24 time format in city view
+
+3.16.1
+======
+* Fixed the missing attribution to the weather data sources
+  in the About dialog
+* Build system fixes
+* Translation updates
+
+3.16.0
+======
+* Translation updates and fixes
+
+3.15.92
+=======
+* Launching search from the overview (clicking on the weather
+  icon next to results) is now supported
+* The weekly forecast sidebar now includes tomorrow and uses
+  2pm as the representative forecast [#741532]
+* Misc bug fixes to the search provider and to the world popup
+* Build system fixes [Dominique Leuenberger, #745581]
+* Translation updates
+
+3.15.91
+=======
+* Build system fixes [Jonas Danielsson, #740414]
+* Fixed opening the app on a specific location (eg when
+  launched from gnome-maps) [Jonas Danielsson, #740414]
+* Fixed showing the world popover on a second window
+  [Jonas Danielsson, #740414]
+* Translation updates
+
+3.15.90
+=======
+* Fix history handling [#741837]
+* Fixed crash when Geoclue is not available [#742460]
+* Improved the forecast for the current location
+* Translation updates
+
+3.15.1
+======
+* Added keywords to the desktop file
+* Translation updates
+
 3.14.1
 ======
 * Fixed compatibility with gtk+ 3.14 [#737818]

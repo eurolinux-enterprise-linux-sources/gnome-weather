@@ -50,6 +50,7 @@ const Application = new Lang.Class({
     _init: function() {
         this.parent({ application_id: pkg.name });
         GLib.set_application_name(_("Weather"));
+        Gtk.Window.set_default_icon_name("org.gnome.Weather");
     },
 
     _onQuit: function() {
@@ -60,7 +61,17 @@ const Application = new Lang.Class({
         let location = this.world.deserialize(parameter.deep_unpack());
         let win = this._createWindow();
 
-        this.model.addNewLocation(location, false);
+        let info = this.model.addNewLocation(location, false);
+        win.showInfo(info, false);
+        this._showWindowWhenReady(win);
+    },
+
+    _onShowSearch: function(action, parameter) {
+        let text = parameter.deep_unpack();
+        let win = this._createWindow();
+
+        win.showSearch(text);
+        this._showWindowWhenReady(win);
     },
 
     _initAppMenu: function() {
@@ -83,6 +94,7 @@ const Application = new Lang.Class({
 
         this.world = GWeather.Location.get_world();
         this.model = new World.WorldModel(this.world, true);
+        this.model.load();
         this.currentLocationController = new CurrentLocationController.CurrentLocationController(this.model);
 
         this.model.connect('notify::loading', Lang.bind(this, function() {
@@ -99,19 +111,54 @@ const Application = new Lang.Class({
                             activate: this._onQuit },
                           { name: 'show-location',
                             activate: this._onShowLocation,
-                            parameter_type: new GLib.VariantType('v') }]);
+                            parameter_type: new GLib.VariantType('v') },
+                          { name: 'show-search',
+                            activate: this._onShowSearch,
+                            parameter_type: new GLib.VariantType('s') }]);
 
         let gwSettings = new Gio.Settings({ schema_id: 'org.gnome.GWeather' });
-        this.add_action(gwSettings.create_action('temperature-unit'));
+        // we would like to use g_settings_create_action() here
+        // but that does not handle correctly the case of 'default'
+        // we would also like to use g_settings_bind_with_mapping(), but that
+        // function is not introspectable (two callbacks, one destroy notify)
+        // so we hand code the behavior we want
+        function resolveDefaultTemperatureUnit(unit) {
+            unit = GWeather.TemperatureUnit.to_real(unit);
+            if (unit == GWeather.TemperatureUnit.CENTIGRADE)
+                return new GLib.Variant('s', 'centigrade');
+            else if (unit == GWeather.TemperatureUnit.FAHRENHEIT)
+                return new GLib.Variant('s', 'fahrenheit');
+            else
+                return new GLib.Variant('s', 'default');
+        }
+        let temperatureAction = new Gio.SimpleAction({
+            enabled: true,
+            name: 'temperature-unit',
+            state: resolveDefaultTemperatureUnit(gwSettings.get_enum('temperature-unit')),
+            parameter_type: new GLib.VariantType('s')
+        });
+        temperatureAction.connect('activate', function(action, parameter) {
+            action.change_state(parameter);
+        })
+        temperatureAction.connect('change-state', function(action, state) {
+            gwSettings.set_value('temperature-unit', state);
+        });
+        gwSettings.connect('changed::temperature-unit', function() {
+            temperatureAction.state = resolveDefaultTemperatureUnit(gwSettings.get_enum('temperature-unit'));
+        });
+        this.add_action(temperatureAction);
 
         this._initAppMenu();
 
-        this.add_accelerator("Escape", "win.selection-mode(false)", null);
+        this.add_accelerator("Escape", "win.selection-mode", new GLib.Variant('b', false));
         this.add_accelerator("<Primary>a", "win.select-all", null);
     },
 
     _createWindow: function() {
-        let win = new Window.MainWindow({ application: this });
+        return new Window.MainWindow({ application: this });
+    },
+
+    _showWindowWhenReady: function(win) {
         let notifyId;
 
         if (this.model.loading) {
@@ -140,11 +187,14 @@ const Application = new Lang.Class({
     },
 
     vfunc_activate: function() {
-        this._createWindow();
+        let win = this._createWindow();
+        win.showDefault();
+        this._showWindowWhenReady(win);
     },
 
     vfunc_shutdown: function() {
         GWeather.Info.store_cache();
+        this.model.saveSettingsNow();
 
         this.parent();
     }

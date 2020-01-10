@@ -23,6 +23,7 @@ const Gtk = imports.gi.Gtk;
 const GWeather = imports.gi.GWeather;
 const Lang = imports.lang;
 
+const CurrentLocationController = imports.app.currentLocationController;
 const Params = imports.misc.params;
 const Util = imports.misc.util;
 
@@ -31,7 +32,7 @@ const WorldContentView = new Lang.Class({
     Name: 'WorldContentView',
     Extends: Gtk.Popover,
 
-    _init: function(application, params) {
+    _init: function(application, window, params) {
         params = Params.fill(params, { hexpand: false, vexpand: false });
         this.parent(params);
 
@@ -44,6 +45,7 @@ const WorldContentView = new Lang.Class({
         this.add(grid);
 
         this.model = application.model;
+        this._window = window;
 
         this._listbox = builder.get_object('locations-list-box');
         this._listbox.set_header_func(function (row, previous) {
@@ -68,11 +70,12 @@ const WorldContentView = new Lang.Class({
         let autoLocSwitch = builder.get_object('auto-location-switch');
         let currentLocationController = application.currentLocationController;
 
-        if(currentLocationController.autoLocation) {
+        if(currentLocationController.autoLocation == CurrentLocationController.AutoLocation.ENABLED) {
             autoLocStack.visible_child_name = 'locating-label';
         } else {
             autoLocStack.visible_child_name = 'auto-location-switch-grid';
             autoLocSwitch.active = false;
+            autoLocSwitch.sensitive = (currentLocationController.autoLocation != CurrentLocationController.AutoLocation.NOT_AVAILABLE);
         }
 
         let handlerId = autoLocSwitch.connect('notify::active', Lang.bind(this, function() {
@@ -86,50 +89,52 @@ const WorldContentView = new Lang.Class({
 
         this._listbox.connect('row-activated', Lang.bind(this, function(listbox, row) {
             this.hide();
-            this.model.showInfo(row._info);
+            this.model.moveLocationToFront(row._info);
+            this._window.showInfo(row._info, false);
         }));
 
-        this.model.connect('current-location-changed', Lang.bind(this, function(model, location) {
+        this.model.connect('current-location-changed', Lang.bind(this, function(model, info) {
             autoLocStack.visible_child_name = 'auto-location-switch-grid';
-            if (location) {
-                GObject.signal_handler_block(autoLocSwitch, handlerId);
-                autoLocSwitch.active = true;
-                GObject.signal_handler_unblock(autoLocSwitch, handlerId);
-            } else {
-                GObject.signal_handler_block(autoLocSwitch, handlerId);
-                autoLocSwitch.active = false;
-                GObject.signal_handler_unblock(autoLocSwitch, handlerId);
+            GObject.signal_handler_block(autoLocSwitch, handlerId);
+            autoLocSwitch.active = (currentLocationController.autoLocation == CurrentLocationController.AutoLocation.ENABLED);
+            autoLocSwitch.sensitive = (currentLocationController.autoLocation != CurrentLocationController.AutoLocation.NOT_AVAILABLE);
+            GObject.signal_handler_unblock(autoLocSwitch, handlerId);
 
-                autoLocSwitch.sensitive = false;
-            }
+            this._window.showInfo(info, true);
         }));
 
-        let stackPopover = builder.get_object('popover-stack');
-        this.model.connect('revalidate', Lang.bind(this, function() {
-            this._listbox.invalidate_filter();
+        this._stackPopover = builder.get_object('popover-stack');
+        this._listbox.set_filter_func(Lang.bind(this, this._filterListbox));
 
-            let children = this._listbox.get_children();
-            if (children.length == 1)
-                stackPopover.set_visible_child_name("search-grid");
-            else
-                stackPopover.set_visible_child_name("locations-grid");
-        }));
-
-        this._listbox.set_filter_func(Lang.bind(this, this._filterListbox, this.model));
         this.model.connect('location-added', Lang.bind(this, this._onLocationAdded));
         this.model.connect('location-removed', Lang.bind(this, this._onLocationRemoved));
 
-        this.model.load();
+        this._currentLocationAdded = false;
+        let list = this.model.getAll();
+        for (let i = list.length - 1; i >= 0; i--)
+            this._onLocationAdded(this.model, list[i], list[i]._isCurrentLocation);
     },
 
-    _filterListbox: function(row, model) {
-        return model.currentlyLoadedInfo == null ||
-            row._info != model.currentlyLoadedInfo;
+    refilter: function() {
+        this._listbox.invalidate_filter();
+    },
+
+    _syncStackPopover: function() {
+        if (this.model.length == 1)
+            this._stackPopover.set_visible_child_name("search-grid");
+        else
+            this._stackPopover.set_visible_child_name("locations-grid");
+    },
+
+    _filterListbox: function(row) {
+        return this._window.currentInfo == null ||
+            row._info != this._window.currentInfo;
     },
 
     _locationChanged: function(entry) {
         if (entry.location) {
-            this.model.addNewLocation(entry.location, false);
+            let info = this.model.addNewLocation(entry.location, false);
+            this._window.showInfo(info, false);
             this.hide();
             entry.location = null;
         }
@@ -180,24 +185,33 @@ const WorldContentView = new Lang.Class({
         let row = new Gtk.ListBoxRow({ visible: true });
         row.add(grid);
         row._info = info;
+        row._isCurrentLocation = isCurrentLocation;
 
         if (isCurrentLocation) {
-            if (model.addedCurrentLocation) {
-                this._listbox.get_row_at_index(0).destroy();
+            if (this._currentLocationAdded) {
+                let row0 = this._listbox.get_row_at_index(0);
+                if (row0)
+                    row0.destroy();
             }
 
+            this._currentLocationAdded = true;
             this._listbox.insert(row, 0);
         } else {
-            if (model.addedCurrentLocation)
+            if (this._currentLocationAdded)
                 this._listbox.insert(row, 1);
             else
                 this._listbox.insert(row, 0);
         }
 
-        info.connect('updated', Lang.bind(this, function(info) {
+        if (info._updatedId)
+            return;
+
+        info._updatedId = info.connect('updated', Lang.bind(this, function(info) {
             tempLabel.label = info.get_temp_summary();
             image.icon_name = info.get_symbolic_icon_name();
         }));
+
+        this._syncStackPopover();
     },
 
     _onLocationRemoved: function(model, info) {
@@ -209,5 +223,14 @@ const WorldContentView = new Lang.Class({
                 break;
             }
         }
+
+        if (info._updatedId) {
+            info.disconnect(info._updatedId);
+            info._updatedId = 0;
+        }
+        if (info._isCurrentLocation)
+            this._currentLocationAdded = false;
+
+        this._syncStackPopover();
     },
 });

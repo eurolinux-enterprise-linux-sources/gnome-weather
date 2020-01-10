@@ -115,12 +115,13 @@ const SearchProvider = new Lang.Class({
                 else
                     countryRet.push(path);
             }
+
+            index++;
         }
 
         this._app.release();
 
         let result = nameRet.concat(cityRet).concat(countryRet);
-        log(result);
         invocation.return_value(new GLib.Variant('(as)', [result]));
     },
 
@@ -176,9 +177,9 @@ const SearchProvider = new Lang.Class({
             let name = location.get_city_name();
             let conditions = Util.getWeatherConditions(info);
 
-            // TRANSLATORS: this is the description shown in the overview search
-            // It's the current weather conditions followed by the temperature,
-            // like "Clear sky, 14 °C"
+            /* TRANSLATORS: this is the description shown in the overview search
+               It's the current weather conditions followed by the temperature,
+               like "Clear sky, 14 °C" */
             let summary = _("%s, %s").format(conditions, info.get_temp());
             ret.push({ name: new GLib.Variant('s', name),
                        id: new GLib.Variant('s', identifiers[i]),
@@ -225,7 +226,7 @@ const SearchProvider = new Lang.Class({
     ActivateResult: function(id, terms, timestamp) {
         this._app.hold();
 
-        log('Activating ' + id);
+        //log('Activating ' + id);
 
         let model = this._app.model;
         let info = model.getAtIndex(parseInt(id));
@@ -234,13 +235,15 @@ const SearchProvider = new Lang.Class({
             return;
         }
 
-        log('Activating ' + info.get_location_name());
+        //log('Activating ' + info.get_location_name());
 
         let location = info.location.serialize();
         this._activateAction('show-location', new GLib.Variant('v', location), timestamp);
     },
 
     LaunchSearch: function(terms, timestamp) {
-        // not implemented
+        this._app.hold();
+
+        this._activateAction('show-search', new GLib.Variant('s', terms.join(' ')), timestamp);
     },
 });
